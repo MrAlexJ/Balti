@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === "production") {
 
 // Define API routes here
 
-const routes = require("./routes/api-routes-user.js");
+const routes = require("./routes/api.js");
 app.use(routes); 
 
 // require("./routes/api.js")(app);
@@ -47,14 +47,3 @@ app.get("*", (req, res) => {
 
 
 
-
-/*app.post("/login", function(req, res){
-  if(req.body.username === "axel" && req.body.password === "dragon123"){
-    loggedIn = true;
-  }
-  res.json(loggedIn);
-})
-
-app.listen(PORT, () => {
-  console.log(`🌎 ==> Server now on port ${PORT}!`);
-});*/
