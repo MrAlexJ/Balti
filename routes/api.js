@@ -118,6 +118,26 @@ router.get("/logout", function(req, res) {
     };
 });
 
+router.get("/", (req, res) => {
+    db.User.findAll({}).then(results => {
+        console.log(results)
+    })
+});
+
+router.post("/api/profile", (req, res) => {
+    console.log(req.body);
+    db.Bucket.create({
+        
+        bucket_items: req.body.bucket_items,
+        list_type: req.body.list_type,
+        public: req.body.public,
+        createdAt: req.body.createdAt
+
+    }).then(function(dbBucket) {
+        res.json(dbBucket)
+    });
+});
+
 
 
 module.exports = router;
