@@ -1,14 +1,14 @@
 import React, {Component} from "react";
-import './Home.css';
+import './Dashboard.css';
 
-class Home extends Component {
+class Dashboard extends Component {
     render(){
         return (
             <div>
-                <h1>Home</h1>
+                <h1>Dashboard</h1>
             </div>
         );
     }
 }
 
-export default Home;
+export default Dashboard;
