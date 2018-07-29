@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Form from "../../components/Form";
 import List from "../../components/List";
+import axios from "axios";
 
 class Profile extends Component {
   // initial form state
@@ -11,6 +12,9 @@ class Profile extends Component {
     completed: false
   };
 
+  componentDidMount() {
+  }
+
   handleInputChange = (event) => {
     // update any state property with the input value of the same name
     this.setState({
@@ -20,25 +24,22 @@ class Profile extends Component {
 
   submitItem = (event) => {
     event.preventDefault();
-    // axios.post("/api/item", this.state).then((response) => {
-    //   if (response.data === true) {
-    //     // clear state/input values
-    //     this.setState({
-    //         item: "",
-    //         dateCreated:"",
-    //         dateCompleted:"",
-    //         completed: false
-    //     });
-    //   }
-    //   // mongoose validation failed
-    //   else {
-    //     alert("Error. Product was not created.");
-    // //   }
-    // });
-  };
-
-  componentDidMount() {
-  }
+    axios.post("/api/profile", this.state).then((response) => {
+      if (response.data === true) {
+        // clear state/input values
+        this.setState({
+          bucket_items: "",
+          list_type: "",
+          public: "",
+          date_complete: "",
+          image: "",
+        });
+      }
+      else {
+        alert("Error. Item was not posted.");
+      }
+  });
+}
 
 
   render() {
