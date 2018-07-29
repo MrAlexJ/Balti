@@ -8,18 +8,6 @@ const Carousel = () => (
 
     <div className="carousel-inner">
 
-      <div className="carousel-overlay">
-
-        <div className="carousel-content text-center">
-
-          <h1>Balti</h1>
-          <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#modalSignUp">Sign Up</button>
-          <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#modalMoreInfo">More Info</button>
-
-        </div>
-
-      </div>
-
       <div className="carousel-item active">
           <video playsInline="" autoPlay="true" muted="" loop="true" className="carousel-video video-man" id="video-man" >
               <source src={machuPicchu} type="video/mp4" />
