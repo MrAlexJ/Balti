@@ -72,13 +72,17 @@ $colors: map-merge(
 
 // Custom Colors
 
-$custom-blue:   #0000FF;
+$dark-blue:     #0a1f54;
+$bright-blue:   #2aa9e0;
+$dull-green:    #378576;
+$bright-green:  #68BE43;
+$custom-yellow: #FFCC02;
 
 // Custom Colors End
 
-$primary:       $custom-blue !default;
-$secondary:     $gray-600 !default;
-$success:       $green !default;
+$primary:       $bright-blue !default;
+$secondary:     $dull-green !default;
+$success:       $bright-green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
 $danger:        $red !default;
@@ -89,7 +93,7 @@ $theme-colors: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $theme-colors: map-merge(
   (
-    "primary":    $custom-blue,
+    "primary":    $primary,
     "secondary":  $secondary,
     "success":    $success,
     "info":       $info,

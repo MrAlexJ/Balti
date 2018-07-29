@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import Button from "../Button/Button";
+import Button from "../Button";
 import logo from "./images/logo@2x.png";
 
 const Header = () => (
@@ -11,12 +11,15 @@ const Header = () => (
       <h2>Live your dreams. Share your memories.</h2>
       <div className="buttons">
         <Button
-          buttonType="primary"
+          type="primary"
+          modalTarget="signUp"
         >
           Sign Up
         </Button>
         <Button
-          buttonType="primary">
+          type="primary"
+          modalTarget="logIn"
+        >
           Log In
         </Button>
       </div>

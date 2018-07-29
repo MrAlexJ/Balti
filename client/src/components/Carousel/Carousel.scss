@@ -15,6 +15,10 @@
         z-index: 20;
     }
 
+    .carousel-control-prev, .carousel-control-next {
+        z-index: 100;
+    }
+
     .carousel-inner {
         height: 100vh;
 

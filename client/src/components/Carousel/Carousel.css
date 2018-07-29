@@ -8,6 +8,8 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.4);
     z-index: 20; }
+  #home-carousel .carousel-control-prev, #home-carousel .carousel-control-next {
+    z-index: 100; }
   #home-carousel .carousel-inner {
     height: 100vh; }
     #home-carousel .carousel-inner .carousel-item {
