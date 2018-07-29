@@ -1,7 +1,7 @@
 {
-  "name": "mern",
+  "name": "balti",
   "version": "1.0.0",
-  "description": "Mern Demo",
+  "description": "Balti",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -22,7 +22,9 @@
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "express": "^4.15.4",
+    "express-session": "^1.15.6",
     "if-env": "^1.0.4",
+    "mysql": "^2.16.0",
     "mysql2": "^1.5.3",
     "rand-token": "^0.4.0",
     "react-router-dom": "^4.3.1",

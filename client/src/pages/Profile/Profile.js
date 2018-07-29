@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Form from "../Form";
-import List from "../List";
+import Form from "../../components/Form";
+import List from "../../components/List";
 
 class Profile extends Component {
   // initial form state
