@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
 
         public: {
             type: DataTypes.BOOLEAN,
-            defaultValue: true
+            // defaultValue: true
         },
 
         date_complete: {
@@ -37,6 +37,8 @@ module.exports = (sequelize, DataTypes) => {
      }
 
     });
+
+    // Bucket.belongsTo(User)
 
     Bucket.associate = (models) => {
         Bucket.belongsTo(models.User, {

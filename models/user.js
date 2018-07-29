@@ -43,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
 
         password: {
             type: DataTypes.STRING,
-            allowNull: false,
+            // allowNull: false,
             validate: {
                 len: [1]
             }
@@ -51,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
 
         token: {
             type: DataTypes.STRING,
-            allowNull: false
+            // allowNull: false
         }
 
     });
@@ -66,6 +66,7 @@ module.exports = (sequelize, DataTypes) => {
                 allowNull: true
             }
         })
+        // User.belongsToMany(models.Bucket, {as: 'userStats'})
     };
     return User;
 }
