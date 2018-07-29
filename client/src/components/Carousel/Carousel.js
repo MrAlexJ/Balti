@@ -1,4 +1,5 @@
 import React from "react";
+import "./Carousel.css";
 import machuPicchu from "./videos/machu-picchu.mp4";
 import tropicalShore from "./videos/tropical-shore.mp4";
 
@@ -9,13 +10,13 @@ const Carousel = () => (
     <div className="carousel-inner">
 
       <div className="carousel-item active">
-          <video playsInline="" autoPlay="true" muted="" loop="true" className="carousel-video video-man" id="video-man" >
+          <video playsInline="" autoPlay="true" muted="" loop="true" className="carousel-video video-machu-picchu" id="video-machu-picchu" >
               <source src={machuPicchu} type="video/mp4" />
           </video>
       </div>
 
       <div className="carousel-item">
-          <video playsInline="" autoPlay="true" muted="" loop="true" className="carousel-video video-woman" id="video-woman" >
+          <video playsInline="" autoPlay="true" muted="" loop="true" className="carousel-video video-tropical-shore" id="video-tropical-shore" >
               <source src={tropicalShore} type="video/mp4" />
           </video>
       </div>

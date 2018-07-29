@@ -6327,6 +6327,14 @@ a.text-dark:hover, a.text-dark:focus {
   .btn-primary:hover {
     background: transparent;
     border-color: white; }
+  .btn-primary:focus {
+    background: transparent;
+    border-color: white;
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 255, 0); }
+  .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled):active:focus {
+    background: transparent;
+    border-color: white;
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 255, 0); }
 
 .carousel-control-prev,
 .carousel-control-next {

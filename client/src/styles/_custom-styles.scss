@@ -14,6 +14,19 @@
         background: transparent;
         border-color: rgba($color: #FFF, $alpha: 1);
     }
+
+    &:focus {
+        background: transparent;
+        border-color: rgba($color: #FFF, $alpha: 1);
+        box-shadow: 0 0 0 0.2rem rgba(0, 0, 255, 0);
+    }
+
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled):active:focus {
+        background: transparent;
+        border-color: rgba($color: #FFF, $alpha: 1);
+        box-shadow: 0 0 0 0.2rem rgba(0, 0, 255, 0);
+    }
 }
 
 .carousel-control-prev, .carousel-control-next {
