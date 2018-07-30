@@ -1,12 +1,14 @@
 const express = require("express");
 const path = require("path");
+const multer = require('multer');
+const uuidv4 = require('uuid/v4');
 const bodyParser = require("body-parser");
 const session = require("express-session");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-const db = require("./models")
+const db = require("./models");
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,7 +23,7 @@ app.use(session({
   resave: false,
   saveUnitialized: true,
   cookie: {secure: "auto", maxAge: null}
-}))
+}));
 
 // Define API routes here
 
