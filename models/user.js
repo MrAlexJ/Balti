@@ -24,8 +24,8 @@ module.exports = (sequelize, DataTypes) => {
         },
 
         profile_img: {
-            type: DataTypes.BLOB,
-            defaultValue: "/img/default.jpg"
+            type: DataTypes.STRING,
+            defaultValue: "default.jpg"
         },
 
         total_completed: {

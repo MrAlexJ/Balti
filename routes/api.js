@@ -4,6 +4,9 @@ const randToken = require("rand-token");
 const encrypt = require("../encrypt/encryption");
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
+const multer = require('multer');
+const uuidv4 = require('uuid/v4');
+const path = require('path');
 
 
 router.post("/signup", function (req, res) {
@@ -237,7 +240,79 @@ router.get("/api/items", (req, res) => {
     });
 });
 
+// Configure Storage
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    /*
+      Files will be saved in the 'uploads' directory. Make
+      sure this directory already exists!
+    */
+    cb(null, './client/public/assets/uploads');
+  },
+  filename: (req, file, cb) => {
+    /*
+      uuidv4() will generate a random ID that we'll use for the
+      new filename. We use path.extname() to get
+      the extension from the original file name and add that to the new
+      generated ID. These combined will create the file name used
+      to save the file on the server and will be available as
+      req.file.pathname in the router handler.
+    */
+    const newFilename = `${uuidv4()}${path.extname(file.originalname)}`;
+    cb(null, newFilename);
+  },
+});
+// create the multer instance that will be used to upload/save the file
+const upload = multer({ storage });
 
+router.get("/upload/profile/:id", (req, res) => {
+    var condition = "id = " + req.params.id;
+
+    console.log("upload");
+    console.log("condition", condition);
+
+    db.User.findAll({
+        where: {
+            id: req.params.id
+        }
+        }).then(results => {
+        console.log(results);
+    
+        res.send(results);
+    });
+  });
+
+  router.put("/upload/profile/:id", upload.single('selectedFile'), (req, res) => {
+
+    var condition = "id = " + req.params.id;
+    console.log("condition", condition);
+  
+      console.log("weee");
+      console.log("id: " + req.params.id);
+      console.log(req.file)
+      /*
+        We now have a new req.file object here. At this point the file has been saved
+        and the req.file.filename value will be the name returned by the
+        filename() function defined in the diskStorage configuration. Other form fields
+        are available here in req.body.
+      */
+
+      db.User.update({
+            profile_img: req.file.filename
+        },
+        {
+            where: {
+                id: req.params.id
+            }
+      })
+      .then((docs) => {
+        res.json(docs);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+
+    });
 
 
 module.exports = router;
