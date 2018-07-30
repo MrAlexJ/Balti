@@ -162,7 +162,7 @@ router.get("/api/userstats", (req, res) => {
     db.User.findAll({
         where: {
             total_completed: {
-                [Op.gt]: 4
+                [Op.gt]: 3
             },
             
         }
@@ -180,7 +180,8 @@ router.get("/api/userstats", (req, res) => {
 router.get("/api/dashboard", (req, res) => {
     db.Bucket.findAll({
             where: {
-                public: true
+                public: true,
+                list_type: "bucket"
             }
     }).then(function(results) {
         console.log("YOOOOOO")
@@ -199,6 +200,7 @@ router.post("/save", (req, res) => {
     last_name: req.body.last_name,
     email: req.body.email,
     total_completed: req.body.total_completed,
+    UserId: req.session.user
     },
 {
     include: [db.Bucket]
@@ -215,8 +217,10 @@ router.post("/api/profile", (req, res) => {
         bucket_items: req.body.bucket_items,
         list_type: req.body.list_type,
         public: req.body.public,
+        completed: req.body.completed,
         date_complete: req.body.date_complete,
         image: req.body.image,
+        UserId: req.session.user
     },
      {
         include: [db.User]
@@ -226,6 +230,23 @@ router.post("/api/profile", (req, res) => {
     });
 });
 
+//add bucket item from random list on dashboard to user wish list
+router.post("/api/addlist", (req, res) => {
+console.log("ADDEDDDDD ");
+    db.Bucket.create({
+        bucket_items: req.body.bucket_items,
+        list_type: "wish",
+        public: false,
+        completed: false,
+        UserId: req.session.user
+    }, {
+       include: [db.User]
+
+    }).then(function(dbBucket) {
+        res.json(dbBucket)
+    });
+
+});
 
 
 
