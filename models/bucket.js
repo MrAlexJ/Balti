@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
 
         list_type: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
         },
          completed: {
             type: DataTypes.BOOLEAN,
-            allowNull: false
+            allowNull: true
          },
 
         date_complete: {

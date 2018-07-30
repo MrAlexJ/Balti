@@ -6,45 +6,47 @@ import axios from "axios";
 class Profile extends Component {
   // initial form state
   state = {
-    items: [],
-    dateCreated:"",
-    dateCompleted:"",
-    completed: false
-  };
+    bucket_items:"",
+    public:false,
+    };
 
   componentDidMount() {
   }
 
-  handleInputChange = (event) => {
+handleInputChange = (event) => {
     // update any state property with the input value of the same name
     this.setState({
-      [event.target.name]: event.target.value
+      bucket_items: event.target.value,
     });
   };
 
-  submitItem = (event) => {
+handleFormSubmit = (event) => {
     event.preventDefault();
+    console.log(this.state);
     axios.post("/api/profile", this.state).then((response) => {
-      if (response.data === true) {
-        // clear state/input values
         this.setState({
-          bucket_items: "",
-          list_type: "",
-          public: "",
-          date_complete: "",
-          image: "",
+          bucket_items: ""
         });
-      }
-      else {
-        alert("Error. Item was not posted.");
-      }
+  });
+}
+
+// handleCheckboxChange = (event)=> {
+//   console.log("checkbox changed!", event);
+//   this.setState({isChecked: event.target.checked});
+// }t
+
+toggleIsChecked = (event) => {
+  console.log(this.state);
+  console.log("toggling isChecked value!");
+  this.setState({
+    public: !this.state.public,
   });
 }
 
 
   render() {
     return (
-      <container>
+      <div>
           <h1> Welcome to your Bucket List! </h1>
         <div>
             <div>
@@ -55,16 +57,16 @@ class Profile extends Component {
             </div>
             <div>
               <Form
-                item={this.state.item}
+                bucket_items={this.state.bucket_items}
+                public={this.state.public}
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
-                dateCreated={this.state.dateCreated}
-                dateCompleted={this.state.dateCompleted}
-                completed={this.state.completed}
+                toggleIsChecked={this.toggleIsChecked}
+                handleCheckboxChange={this.handleCheckboxChange}
               />
             </div>
         </div>
-      </container>
+      </div>
     );
   }
 }

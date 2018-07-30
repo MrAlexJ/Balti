@@ -6,16 +6,31 @@ const Form = props => (
       <label htmlFor="name">
         <h6>Add your next bucket list item!</h6>
       </label>
+      <div className="input-group mb-3">
+      <div className="input-group-prepend">
+        <div className="input-group-text">
+        Check to Make Public
+          <input 
+          type="checkbox" 
+          aria-label="Checkbox for following text input" 
+          id="public"
+          // value={props.public}
+          // defaultChecked={false}
+          onChange={props.toggleIsChecked} 
+          checked={props.isChecked}
+          />
+        </div>
+      </div>
       <input
         className="form-control"
-        id="item"
+        id="bucket_items"
         type="text"
-        value={props.item}
+        value={props.bucket_items}
         placeholder=""
-        name="name"
+        name="bucket_items"
         onChange={props.handleInputChange}
-        required
       />
+      </div>
     </div>
     <div className="pull-right">
       <button

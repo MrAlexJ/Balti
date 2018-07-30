@@ -215,6 +215,7 @@ router.post("/api/profile", (req, res) => {
         bucket_items: req.body.bucket_items,
         list_type: req.body.list_type,
         public: req.body.public,
+        completed: req.body.completed,
         date_complete: req.body.date_complete,
         image: req.body.image,
     },
@@ -223,6 +224,16 @@ router.post("/api/profile", (req, res) => {
 })
     .then(function(dbBucket) {
         res.json(dbBucket);
+    });
+});
+
+router.get("/api/items", (req, res) => {
+    db.Bucket.findAll({
+    }).then(function(results) {
+        console.log("Yayy")
+        console.log(results[0].bucket_items);
+        console.log(results[0].list_type);
+        res.json(results)
     });
 });
 
