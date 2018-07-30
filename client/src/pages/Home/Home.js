@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import Header from "../../components/Header";
 import Carousel from "../../components/Carousel";
 import Modal from "../../components/Modal";
+import SignUp from "../../components/SignUp";
+import Login from "../../components/Login";
 import './Home.css';
 
 class Home extends Component {
@@ -15,14 +17,14 @@ class Home extends Component {
                     labelledBy="signUpLabel"
                     title="Create Account"
                 >
-                    Sign up modal
+                    <SignUp />
                 </Modal>
                 <Modal
                     id="logIn"
                     labelledBy="signUpLabel"
                     title="Log In"
                 >
-                    Log in modal
+                    <Login />
                 </Modal>
             </div>
         );

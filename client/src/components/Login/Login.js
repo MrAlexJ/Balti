@@ -1,9 +1,10 @@
 import React from 'react';
 import axios from 'axios';
+import Button from "../Button";
+import "./Login.css";
 
-class Signup extends React.Component {
+class Login extends React.Component {
     state = {
-        fullName: "",
         email: "",
         password: ""
     };
@@ -16,38 +17,30 @@ class Signup extends React.Component {
         });
     };
 
-    handleSignUp = (event) => {
+    handleLogIn = (event) => {
         event.preventDefault();
 
-        let newUser = {
-            fullName: this.state.fullName,
+        let existingUser = {
             email: this.state.email,
             password: this.state.password
-        }
+        };
 
-        console.log("NEW USER: ", newUser);
+        console.log("CURRENT USER: ", existingUser);
 
-        axios.post('/signup', newUser).then(response => {
-            if (response.data.code === 304) {
-                alert("An account already exists with that email address.");
-                window.location.href='/signup';
+        axios.post('/login', existingUser).then(response => {
+            if (response.data.code === 504) {
+                alert("Invalid login.");;
+                window.location.href='/login'
             } else {
-                alert("Account created. Welcome!");
-                window.location.href = '/';
+                alert("You have been logged in!");
+                window.location.href='/';
             }
-        }).catch(error => {
-            console.log("POST ERROR: ", error);
         });
-        
-    };
-
+    }
 
     render() {
         return (
-            <form className="form" onSubmit={this.handleSignUp}>
-                <div className="form-group">
-                    <input value={this.state.value} name="fullName" onChange={this.handleInputChange} type="text" className="form-control" id="fullName" placeholder="Full name"></input>
-                </div>
+            <form className="form" onSubmit={this.handleLogIn}>
                 <div className="form-group">
                     <input value={this.state.value} name="email" onChange={this.handleInputChange} type="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"></input>
                 </div>
@@ -55,11 +48,22 @@ class Signup extends React.Component {
                     <input value={this.state.value} name="password" onChange={this.handleInputChange} type="password" className="form-control" id="password" placeholder="Password"></input>
                 </div>
                 <div className="form-group">
-                    <button type="submit" className="btn btn-primary">Submit</button>
+                    <Button
+                    buttonStyle="secondary"
+                    type="cancel"
+                    >
+                        Cancel
+                    </Button>
+                    <Button
+                    buttonStyle="primary"
+                    type="submit"
+                    >
+                        Log In
+                    </Button>
                 </div>
             </form>
         )
     }
 }
 
-export default Signup;
+export default Login;

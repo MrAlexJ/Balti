@@ -6312,3 +6312,37 @@ a.text-dark:hover, a.text-dark:focus {
   .table .thead-dark th {
     color: inherit;
     border-color: #dee2e6; } }
+
+.form .btn {
+  border-radius: 6px; }
+
+.form .btn-primary {
+  background-color: #2aa9e0;
+  width: calc( 50% - 10px);
+  margin-left: 10px;
+  margin-right: 0;
+  border: 0; }
+
+.form .btn-primary:hover {
+  background: #1d81ac; }
+
+.form .btn-secondary {
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 200;
+  text-transform: uppercase;
+  padding: 10px 2px;
+  margin-right: 10px;
+  width: calc( 50% - 10px);
+  border: 0; }
+
+.form input {
+  border: 0;
+  border-radius: 6px;
+  background: #eaeff4; }
+  .form input:focus {
+    background: rgba(234, 239, 244, 0.6); }
+    .form input:focus::placeholder {
+      color: rgba(110, 120, 131, 0.5); }
+  .form input::placeholder {
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 200; }
