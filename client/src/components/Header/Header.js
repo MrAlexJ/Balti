@@ -11,13 +11,15 @@ const Header = () => (
       <h2>Live your dreams. Share your memories.</h2>
       <div className="buttons">
         <Button
-          type="primary"
+          buttonStyle="primary"
+          type="modal"
           modalTarget="signUp"
         >
           Sign Up
         </Button>
         <Button
-          type="primary"
+          buttonStyle="primary"
+          type="modal"
           modalTarget="logIn"
         >
           Log In
