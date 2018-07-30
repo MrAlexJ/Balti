@@ -9,18 +9,18 @@ module.exports = (sequelize, DataTypes) => {
 
         bucket_items: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            allowNull: true,
+            // validate: {
+            //     len: [1]
+            // }
         },
 
         list_type: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [1]
-            }
+            // validate: {
+            //     len: [1]
+            // }
         },
 
         public: {
@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
         },
          completed: {
             type: DataTypes.BOOLEAN,
-            allowNull: true
+            // allowNull: true
          },
 
         date_complete: {
