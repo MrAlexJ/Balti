@@ -13,7 +13,7 @@ const Stats = props => {
              <div>   
             <h4>{stats.first_name} | accomplished: {stats.total_completed}</h4>
             </div> 
-            )
+            )   
         })}
            
         </Carousel>

@@ -6,22 +6,33 @@ import axios from "axios";
 class Profile extends Component {
   // initial form state
   state = {
+    results:[],
     bucket_items:"",
     public:false,
-    };
+    // completed:true,
+  };
 
   componentDidMount() {
+    axios.get("/api/items").then((response)=> {
+      console.log("bla",response.data);
+      this.setState({
+        results:response.data
+      });
+    });
   }
 
+
 handleInputChange = (event) => {
+  // console.log(event.target)
     // update any state property with the input value of the same name
     this.setState({
       bucket_items: event.target.value,
+
     });
   };
 
 handleFormSubmit = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     console.log(this.state);
     axios.post("/api/profile", this.state).then((response) => {
         this.setState({
@@ -33,15 +44,38 @@ handleFormSubmit = (event) => {
 // handleCheckboxChange = (event)=> {
 //   console.log("checkbox changed!", event);
 //   this.setState({isChecked: event.target.checked});
-// }t
+// }
+
+toggleCheckComplete = (event) => {
+  this.handleInputChange(event);
+  console.log("this is the checkmark event ",event.target)
+  axios.put(`/api/completed/${event.target.id}`, {completed: true}).then((response) => {    
+    this.setState({
+      // id : event.target.id,
+      // completed: !this.state.completed,
+    });
+});
+  console.log(this.state);
+
+}
 
 toggleIsChecked = (event) => {
   console.log(this.state);
   console.log("toggling isChecked value!");
   this.setState({
     public: !this.state.public,
+    id:this.state.id
   });
 }
+
+disableCheck = (event) => {
+  axios.get("/api/done").then((response)=> {
+    this.setState({
+      results:response.data
+    });
+  });
+}
+
 
 
   render() {
@@ -53,6 +87,11 @@ toggleIsChecked = (event) => {
                 <h5>Before I Kick the Bucket, I Gotta...</h5>
               <List
                 item={this.state.item}
+                data={this.state.results}
+                toggleCheckComplete={this.toggleCheckComplete}
+                completed={this.state.completed}
+                disableCheck={this.disableCheck}
+                handleInputChange={this.handleInputChange}
               />
             </div>
             <div>

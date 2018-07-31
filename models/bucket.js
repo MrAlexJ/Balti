@@ -46,7 +46,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Bucket.associate = (models) => {
         Bucket.belongsTo(models.User, {
-            user_id: {
+            foreignKey: {
                 allowNull: false
             }
         });

@@ -1,5 +1,5 @@
 import React from "react";
-
+import ListItem from "./ListItem.js"
 
 const List = props => {
 
@@ -12,7 +12,7 @@ const List = props => {
         <ul className="list-group">
           {props.data.map(item => (
             <li className="list-group-item" key={item.id}>
-              {item.bucket_items} | 
+              {item.bucket_items}
               
               <i className="fas fa-plus-circle" onClick={()=>props.addToList(item)}></i>
               <br />
@@ -26,9 +26,13 @@ const List = props => {
       return (
         <ul className="list-group">
           {props.data.map(item => (
-            <li className="list-group-item" key={item.id}>
-              {item.bucket_items}
-            </li>
+            <ListItem
+              key={item.id}
+              items={item.bucket_items}
+              type="checkbox"
+              id={item.id}
+              onChange={props.toggleCheckComplete}
+            > mission accomplished? </ListItem> 
           ))}
         </ul>
       );
