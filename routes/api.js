@@ -134,7 +134,7 @@ router.get("/", (req, res) => {
     })
 });
 
-//gets all users completed list item that is > 4 (pull firstname, profile pic & completed total)
+//gets all users completed list item that is > 3 (pull firstname, profile pic & completed total)
 router.get("/api/userstats", (req, res) => {
     db.User.findAll({
         where: {
@@ -168,6 +168,30 @@ router.get("/api/dashboard", (req, res) => {
     });
 });
 
+//display user wish list on their profile page
+router.get("/api/wishlist", (req, res) => {
+    db.Bucket.findAll({
+        where: {
+            list_type: "wish"
+        }
+    }).then(function(results) {
+        res.json(results)
+    });
+});
+
+//post user wish items to database
+router.post("/api/wishitems", (req, res) => {
+    db.Bucket.create({
+        bucket_items: req.body.bucket_items,
+        list_type: req.body.list_type,
+        public: req.body.public
+    }, {
+        include: [db.User]
+    }).then(function(dbBucket) {
+        res.json(dbBucket);
+    })
+});
+
 //create user
 router.post("/save", (req, res) => {
     console.log(req.session);
@@ -187,6 +211,7 @@ router.post("/save", (req, res) => {
     });
 });
 
+//post user bucket list items to database
 router.post("/api/profile", (req, res) => {
     console.log("BUCKET LIST POST")
 
@@ -206,6 +231,7 @@ router.post("/api/profile", (req, res) => {
         res.json(dbBucket);
     });
 });
+
 
 router.get("/api/items", (req, res) => {
     db.Bucket.findAll({
