@@ -30,10 +30,10 @@ class Login extends React.Component {
         axios.post('/login', existingUser).then(response => {
             if (response.data.code === 504) {
                 alert("Invalid login.");;
-                window.location.href='/login'
+                window.location.href='/'
             } else {
                 alert("You have been logged in!");
-                window.location.href='/';
+                window.location.href='/Dashboard';
             }
         });
     }
