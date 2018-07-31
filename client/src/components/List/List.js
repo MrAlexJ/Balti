@@ -29,6 +29,7 @@ const List = props => {
             <ListItem
               key={item.id}
               items={item.bucket_items}
+              completed={item.completed}
               type="checkbox"
               id={item.id}
               onChange={props.toggleCheckComplete}

@@ -5,12 +5,32 @@ class ListItem extends Component {
         strike:false,
         style: {
             textDecoration:"none"
-        }
+        },
+        // completed:false
+    }
+
+    componentDidMount () {
+        if (this.props.completed===true) {
+              this.setState({
+                  strike: true,
+                  style: {
+                      textDecoration:"line-through"
+                  }
+              })
+          }
+          else {
+              this.setState ({
+                  strike:false,
+                  style: {
+                    textDecoration:"none"
+                    }
+              })
+          }
     }
 
     handleStrike = (event) => {
           console.log("hello?")
-          console.log(this.state.strike)
+          console.log(this.props.completed)
           if (this.state.strike === false){
             console.log("hey " , this.state.strike)
               this.setState({
@@ -28,7 +48,9 @@ class ListItem extends Component {
                     }
               })
           }
-        }
+    }
+
+
       
 
     render() {
@@ -42,6 +64,7 @@ class ListItem extends Component {
                             type={this.props.type}
                             key={this.props.id}
                             id={this.props.id}
+                            // completed={this.props.completed}
                             onChange={this.props.onChange}
                             onClick={()=>this.handleStrike()}
                             checked={this.state.strike}

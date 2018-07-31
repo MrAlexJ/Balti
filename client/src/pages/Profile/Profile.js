@@ -9,7 +9,6 @@ class Profile extends Component {
     results:[],
     bucket_items:"",
     public:false,
-    // completed:true,
   };
 
   componentDidMount() {
@@ -41,10 +40,6 @@ handleFormSubmit = (event) => {
   });
 }
 
-// handleCheckboxChange = (event)=> {
-//   console.log("checkbox changed!", event);
-//   this.setState({isChecked: event.target.checked});
-// }
 
 toggleCheckComplete = (event) => {
   this.handleInputChange(event);
@@ -86,7 +81,7 @@ disableCheck = (event) => {
             <div>
                 <h5>Before I Kick the Bucket, I Gotta...</h5>
               <List
-                item={this.state.item}
+                // item={this.state.item}
                 data={this.state.results}
                 toggleCheckComplete={this.toggleCheckComplete}
                 completed={this.state.completed}
@@ -101,7 +96,6 @@ disableCheck = (event) => {
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
                 toggleIsChecked={this.toggleIsChecked}
-                handleCheckboxChange={this.handleCheckboxChange}
               />
             </div>
         </div>
