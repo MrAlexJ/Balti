@@ -5,7 +5,8 @@ import "./SignUp.css";
 
 class SignUp extends React.Component {
     state = {
-        fullName: "",
+        firstName: "",
+        lastName: "",
         email: "",
         password: ""
     };
@@ -22,7 +23,8 @@ class SignUp extends React.Component {
         event.preventDefault();
 
         let newUser = {
-            fullName: this.state.fullName,
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
             email: this.state.email,
             password: this.state.password
         }
@@ -32,10 +34,10 @@ class SignUp extends React.Component {
         axios.post('/signup', newUser).then(response => {
             if (response.data.code === 304) {
                 alert("An account already exists with that email address.");
-                window.location.href='/signup';
+                window.location.href='/';
             } else {
                 alert("Account created. Welcome!");
-                window.location.href = '/';
+                window.location.href = '/Profile';
             }
         }).catch(error => {
             console.log("POST ERROR: ", error);
@@ -48,7 +50,10 @@ class SignUp extends React.Component {
         return (
             <form className="form" onSubmit={this.handleSignUp}>
                 <div className="form-group">
-                    <input value={this.state.value} name="fullName" onChange={this.handleInputChange} type="text" className="form-control" id="fullName" placeholder="Full Name"></input>
+                    <input value={this.state.value} name="firstName" onChange={this.handleInputChange} type="text" className="form-control" id="firstName" placeholder="First Name"></input>
+                </div>
+                <div className="form-group">
+                    <input value={this.state.value} name="lastName" onChange={this.handleInputChange} type="text" className="form-control" id="lastName" placeholder="Last Name"></input>
                 </div>
                 <div className="form-group">
                     <input value={this.state.value} name="email" onChange={this.handleInputChange} type="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="E-Mail"></input>

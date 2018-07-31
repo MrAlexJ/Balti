@@ -7,6 +7,7 @@ const Op = Sequelize.Op;
 
 
 router.post("/signup", function (req, res) {
+    console.log(req.session);
     db.User.findOne({
         where: {
             email: req.body.email
@@ -18,8 +19,8 @@ router.post("/signup", function (req, res) {
             let encryptPw = encrypt.encrypt(req.body.password);
 
             db.User.create({
-                first_name: req.body.first_name,
-                last_name: req.body.last_name,
+                first_name: req.body.firstName,
+                last_name: req.body.lastName,
                 email: req.body.email,
                 password: encryptPw,
                 token: token
@@ -122,34 +123,7 @@ router.get("/logout", function(req, res) {
     };
 });
 
-router.get('/login', function (req, res) {
-    if (req.session.user) {
-        res.redirect('/');
-    } else if (req.cookie) {
-        db.User.findOne({
-            where: {
-                token: req.session.user.token
-            }
-        }).then(function (result) {
-            req.session.user = result.id;
-            res.redirect('/');
-        });
-    } else {
-        res.redirect('/');
-    };
-});
 
-router.get("/logout", function (req, res) {
-    if (req.body) {
-        res.clearCookie("TOKEN");
-        req.session.destroy();
-        res.end();
-    } else {
-        res.send({
-            "code": 707
-        });
-    };
-});
 
 router.get("/", (req, res) => {
     db.User.findAll({}).then(results => {
@@ -192,7 +166,7 @@ router.get("/api/dashboard", (req, res) => {
 
 //create user
 router.post("/save", (req, res) => {
-    console.log("HELLOOOOOO....");
+    console.log(req.session);
 
     db.User.create({
     first_name: req.body.first_name,
