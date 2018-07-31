@@ -35,6 +35,7 @@ module.exports = (sequelize, DataTypes) => {
         email: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true,
             validate: {
                 isEmail: true,
                 len: [1]
@@ -43,6 +44,7 @@ module.exports = (sequelize, DataTypes) => {
 
         password: {
             type: DataTypes.STRING,
+            unique: true,
             // allowNull: false,
             validate: {
                 len: [1]
