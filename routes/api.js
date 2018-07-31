@@ -4,9 +4,13 @@ const randToken = require("rand-token");
 const encrypt = require("../encrypt/encryption");
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
+const multer = require('multer');
+const uuidv4 = require('uuid/v4');
+const path = require('path');
 
 
 router.post("/signup", function (req, res) {
+    console.log(req.session);
     db.User.findOne({
         where: {
             email: req.body.email
@@ -18,8 +22,8 @@ router.post("/signup", function (req, res) {
             let encryptPw = encrypt.encrypt(req.body.password);
 
             db.User.create({
-                first_name: req.body.first_name,
-                last_name: req.body.last_name,
+                first_name: req.body.firstName,
+                last_name: req.body.lastName,
                 email: req.body.email,
                 password: encryptPw,
                 token: token
@@ -122,34 +126,7 @@ router.get("/logout", function(req, res) {
     };
 });
 
-router.get('/login', function (req, res) {
-    if (req.session.user) {
-        res.redirect('/');
-    } else if (req.cookie) {
-        db.User.findOne({
-            where: {
-                token: req.session.user.token
-            }
-        }).then(function (result) {
-            req.session.user = result.id;
-            res.redirect('/');
-        });
-    } else {
-        res.redirect('/');
-    };
-});
 
-router.get("/logout", function (req, res) {
-    if (req.body) {
-        res.clearCookie("TOKEN");
-        req.session.destroy();
-        res.end();
-    } else {
-        res.send({
-            "code": 707
-        });
-    };
-});
 
 router.get("/", (req, res) => {
     db.User.findAll({}).then(results => {
@@ -162,7 +139,7 @@ router.get("/api/userstats", (req, res) => {
     db.User.findAll({
         where: {
             total_completed: {
-                [Op.gt]: 4
+                [Op.gt]: 3
             },
             
         }
@@ -170,8 +147,8 @@ router.get("/api/userstats", (req, res) => {
             console.log("PLEASE: ", (results));
             console.log(results[0].first_name);
             console.log(results[0].total_completed);
-            console.log(results[1].first_name);
-            console.log(results[1].total_completed);
+            // console.log(results[1].first_name);
+            // console.log(results[1].total_completed);
             res.json(results);
         });
 });
@@ -180,7 +157,8 @@ router.get("/api/userstats", (req, res) => {
 router.get("/api/dashboard", (req, res) => {
     db.Bucket.findAll({
             where: {
-                public: true
+                public: true,
+                list_type: "bucket"
             }
     }).then(function(results) {
         console.log("YOOOOOO")
@@ -192,13 +170,14 @@ router.get("/api/dashboard", (req, res) => {
 
 //create user
 router.post("/save", (req, res) => {
-    console.log("HELLOOOOOO....");
+    console.log(req.session);
 
     db.User.create({
     first_name: req.body.first_name,
     last_name: req.body.last_name,
     email: req.body.email,
     total_completed: req.body.total_completed,
+    UserId: req.session.user
     },
 {
     include: [db.Bucket]
@@ -218,6 +197,7 @@ router.post("/api/profile", (req, res) => {
         completed: req.body.completed,
         date_complete: req.body.date_complete,
         image: req.body.image,
+        UserId: req.session.user
     },
      {
         include: [db.User]
@@ -270,6 +250,100 @@ router.put("/api/completed/:id", function(req, res) {
         res.json(results)
     });
 });
+// Configure Storage
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    /*
+      Files will be saved in the 'uploads' directory. Make
+      sure this directory already exists!
+    */
+    cb(null, './client/public/assets/uploads');
+  },
+  filename: (req, file, cb) => {
+    /*
+      uuidv4() will generate a random ID that we'll use for the
+      new filename. We use path.extname() to get
+      the extension from the original file name and add that to the new
+      generated ID. These combined will create the file name used
+      to save the file on the server and will be available as
+      req.file.pathname in the router handler.
+    */
+    const newFilename = `${uuidv4()}${path.extname(file.originalname)}`;
+    cb(null, newFilename);
+  },
+});
+// create the multer instance that will be used to upload/save the file
+const upload = multer({ storage });
+//add bucket item from random list on dashboard to user wish list
+router.post("/api/addlist", (req, res) => {
+console.log("ADDEDDDDD ");
+    db.Bucket.create({
+        bucket_items: req.body.bucket_items,
+        list_type: "wish",
+        public: false,
+        completed: false,
+        UserId: req.session.user
+    }, {
+       include: [db.User]
+
+    }).then(function(dbBucket) {
+        res.json(dbBucket)
+    });
+
+});
+
+router.get("/upload/profile/:id", (req, res) => {
+    var condition = "id = " + req.params.id;
+
+    console.log("upload");
+    console.log("condition", condition);
+
+    db.User.findAll({
+        where: {
+            id: req.params.id
+        }
+        }).then(results => {
+        console.log(results);
+    
+        res.send(results);
+    });
+  });
+
+  router.put("/upload/profile/:id", upload.single('selectedFile'), (req, res) => {
+
+    var condition = "id = " + req.params.id;
+    console.log("condition", condition);
+  
+      console.log("weee");
+      console.log("id: " + req.params.id);
+      console.log(req.file)
+      /*
+        We now have a new req.file object here. At this point the file has been saved
+        and the req.file.filename value will be the name returned by the
+        filename() function defined in the diskStorage configuration. Other form fields
+        are available here in req.body.
+      */
+
+      db.User.update({
+            profile_img: req.file.filename
+        },
+        {
+            where: {
+                id: req.params.id
+            }
+      })
+      .then((docs) => {
+        res.json(docs);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+
+    });
+
+    //Search location and things to do routes
+
+    
 
 
 module.exports = router;

@@ -1,14 +1,15 @@
 {
     "development": {
         "username": "root",
-        "password": "Password",
+        "password": "root",
         "database": "Balti_db",
         "host": "127.0.0.1",
+        "port": 8889,
         "dialect": "mysql"
     },
     "test": {
         "username": "root",
-        "password": "Password",
+        "password": "root",
         "database": "database_test",
         "host": "127.0.0.1",
         "dialect": "mysql"
