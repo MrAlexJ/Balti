@@ -237,7 +237,39 @@ router.get("/api/items", (req, res) => {
     });
 });
 
+router.put("/api/completed/:id", function(req, res) {
+    var condition = "id = " + req.params.id;
+    console.log("condition", condition);
+    console.log(req.body)
+    db.Bucket.update({
+    //   completed: req.body.completed
+    completed: req.body.completed
+    },
+    {
+    where: {
+        id: req.params.id
+        }
+    })
+    .then((docs) => {
+      res.json(docs);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+  });
 
+  router.get("/api/done", (req, res) => {
+    db.Bucket.findAll({
+            where: {
+                completed: true
+            }
+    }).then(function(results) {
+        console.log("YOOOOOO")
+        console.log(results[0].bucket_items);
+        console.log(results[0].list_type);
+        res.json(results)
+    });
+});
 
 
 module.exports = router;
