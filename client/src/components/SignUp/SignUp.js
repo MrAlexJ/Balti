@@ -37,7 +37,7 @@ class SignUp extends React.Component {
                 window.location.href='/';
             } else {
                 alert("Account created. Welcome!");
-                window.location.href = '/Dashboard';
+                window.location.href = '/Profile';
             }
         }).catch(error => {
             console.log("POST ERROR: ", error);
