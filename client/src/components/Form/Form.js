@@ -9,7 +9,7 @@ const Form = props => (
       <div className="input-group mb-3">
       <div className="input-group-prepend">
         <div className="input-group-text">
-        Check to Make Public
+        Allow Public .  
           <input 
           type="checkbox" 
           aria-label="Checkbox for following text input" 
@@ -20,6 +20,14 @@ const Form = props => (
           checked={props.isChecked}
           />
         </div>
+          <button className="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">List Type</button>
+          <div className="dropdown-menu">
+            <a className="dropdown-item" onClick={props.type}>WISH</a>
+            <a className="dropdown-item" href="#">BUCKET</a>
+            {/* <a class="dropdown-item" href="#">Something else here</a>
+            <div role="separator" class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a> */}
+          </div>
       </div>
       <input
         className="form-control"

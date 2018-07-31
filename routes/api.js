@@ -201,7 +201,7 @@ router.post("/save", (req, res) => {
     last_name: req.body.last_name,
     email: req.body.email,
     total_completed: req.body.total_completed,
-    user_id: req.session.user
+    UserId: req.session.user
     },
 {
     include: [db.Bucket]
@@ -235,6 +235,9 @@ router.post("/api/profile", (req, res) => {
 
 router.get("/api/items/", (req, res) => {
     db.Bucket.findAll({
+        where: {
+            UserId: req.session.user
+        }
     }).then(function(results) {
         console.log("Yayy")
         // console.log(results[0].bucket_items);
@@ -308,7 +311,7 @@ console.log("ADDEDDDDD ");
         list_type: "wish",
         public: false,
         completed: false,
-        user_id: req.session.user
+        UserId: req.session.user
     }, {
        include: [db.User]
 
