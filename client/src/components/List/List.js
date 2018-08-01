@@ -27,7 +27,7 @@ const List = props => {
       return (
         <ul className="list-group">
           {props.data.map(item => (
-            <li className="list-group-item" key={item.id} id={item.id} onClick={() => props.addToRealList(item)}>
+            <li className="list-group-item" key={item.id} id={item.id}>
               {item.bucket_items}
             </li>
           ))}
