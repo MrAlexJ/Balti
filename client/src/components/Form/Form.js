@@ -20,14 +20,12 @@ const Form = props => (
           checked={props.isChecked}
           />
         </div>
-          <button className="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">List Type</button>
-          <div className="dropdown-menu">
-            <a className="dropdown-item" onClick={props.type}>WISH</a>
-            <a className="dropdown-item" onClicke={props.type}>BUCKET</a>
-            {/* <a class="dropdown-item" href="#">Something else here</a>
-            <div role="separator" class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a> */}
-          </div>
+          <label for="exampleFormControlSelect1">List Type</label>
+          <select onChange={props.handleDropChange} class="form-control" id="exampleFormControlSelect1" value={props.listType}>
+            <option value="select">Select</option>
+            <option value="wish" >Wish List</option>
+            <option value="bucket" >Bucket List</option>
+          </select>
       </div>
       <input
         className="form-control"

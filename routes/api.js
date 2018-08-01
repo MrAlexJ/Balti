@@ -172,7 +172,8 @@ router.get("/api/dashboard", (req, res) => {
 router.get("/api/wishlist", (req, res) => {
     db.Bucket.findAll({
         where: {
-            list_type: "wish"
+            list_type: "wish",
+            UserId: req.session.user
         }
     }).then(function(wish) {
         res.json(wish)
@@ -236,7 +237,8 @@ router.post("/api/profile", (req, res) => {
 router.get("/api/items/", (req, res) => {
     db.Bucket.findAll({
         where: {
-            UserId: req.session.user
+            UserId: req.session.user,
+            list_type: "bucket"
         }
     }).then(function(results) {
         console.log("Yayy")
@@ -377,7 +379,6 @@ router.get("/upload/profile/:id", (req, res) => {
         console.log("condition", condition);
         console.log(req.body)
         db.Bucket.update({
-        //   completed: req.body.completed
         list_type: req.body.list_type
         },
         {
