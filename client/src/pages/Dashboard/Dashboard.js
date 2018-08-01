@@ -33,8 +33,6 @@ class Dashboard extends Component {
         });
     }
 
-
-
     addToList = (item) => {
         console.log(item)
         console.log("YAYYY");

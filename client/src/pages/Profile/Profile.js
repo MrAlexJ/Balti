@@ -9,6 +9,8 @@ class Profile extends Component {
     results:[],
     bucket_items:"",
     public:false,
+    list_type: []
+    // completed:true,
   };
 
   componentDidMount() {
@@ -71,6 +73,18 @@ disableCheck = (event) => {
   });
 }
 
+//select list type function
+listType = (type) => {
+    console.log(type)
+
+    axios.post("/api/wishlist", type).then((response) => {
+      console.log("WISSHHHH", response.data);
+
+      this.setState({
+        list_type: response.data
+      });
+    });
+}
 
 
   render() {

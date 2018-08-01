@@ -201,7 +201,7 @@ router.post("/save", (req, res) => {
     last_name: req.body.last_name,
     email: req.body.email,
     total_completed: req.body.total_completed,
-    user_id: req.session.user
+    UserId: req.session.user
     },
 {
     include: [db.Bucket]
