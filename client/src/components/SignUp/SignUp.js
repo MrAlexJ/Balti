@@ -33,11 +33,11 @@ class SignUp extends React.Component {
 
         axios.post('/signup', newUser).then(response => {
             if (response.data.code === 304) {
-                alert("An account already exists with that email address.");
-                window.location.href='/';
+                alert("An account already exists with that email address.",
+                window.location.href='/');
             } else {
-                alert("Account created. Welcome!");
-                window.location.href = '/Dashboard';
+                alert("Account created. Welcome!",
+                window.location.href = '/Dashboard');
             }
         }).catch(error => {
             console.log("POST ERROR: ", error);
