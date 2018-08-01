@@ -40,6 +40,37 @@ router.post("/signup", function (req, res) {
     });
 });
 
+//update email change
+
+router.put("/emailchange", function (req, res) {
+    console.log("EMAIL CHANGE STUFF ", req.session.user);
+    db.User.update(
+        {email: req.body.email},{
+    where: {
+        id: req.session.user
+    }
+    })
+    .then((docs) => {
+        res.json(docs);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+});
+
+router.put("/namechange", function (req, res) {
+    console.log(req.session);
+    db.User.update({
+        first_name: req.body.firstName,
+        last_name: req.body.lastName
+    },
+    {
+    where: {
+        id: req.session.user
+    }
+    });
+});
+
 router.post("/login", function (req, res) {
     db.User.findOne({
         where: {
