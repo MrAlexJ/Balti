@@ -13,9 +13,9 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/profile" component={Profile} />
+      <Route exact path="/profile/upload/:id" component={Upload} />
       <Route exact path="/search" component={Search} />
       <Route exact path="/settings" component={Settings} />
-      <Route exact path="/upload/profile/:id" component={Upload} />
     </div>
   </Router>
 );

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios';
 import { Col, Row, Container } from "../../components/Grid";
 import Button from "../../components/Button";
 import panda from "../../images/default.jpg";
@@ -8,6 +9,22 @@ class DashHeader extends Component {
   state = {
 
   }
+
+  handleLogOut = () => {
+      axios.get('/logout').then(response => {
+          console.log(response);
+          if (response.data.code === 707) {
+              console.log("You are logged in.");
+              window.location.href = '/';
+          } else if (response.data === "") {
+            console.log("You are not logged in!");
+              window.location.href = '/';
+          } else {
+              console.log("You have been logged out.");
+              window.location.href = '/';
+          };
+      });
+  };
 
   render() {
     return (
@@ -24,6 +41,7 @@ class DashHeader extends Component {
               <Button
                 buttonStyle="light"
                 type="button"
+                onClick={this.handleLogOut}
               >
                 Log Out
               </Button>
