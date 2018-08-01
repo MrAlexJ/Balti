@@ -24,7 +24,11 @@
     height: 40px;
     line-height: 40px;
     color: rgba(255, 255, 255, 0.6);
-    font-size: 1rem; }
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.05); }
+    .menu a.btn-settings:hover {
+      background: #378576;
+      text-decoration: none; }
   .menu ul.menu-list {
     margin: 0;
     padding: 0;
@@ -36,6 +40,8 @@
       height: 33.33%;
       text-align: center;
       display: flex; }
+      .menu ul.menu-list li.menu-item:last-of-type a.menu-link {
+        border-bottom: 0; }
       .menu ul.menu-list li.menu-item a.menu-link {
         display: flex;
         align-items: center;
@@ -46,6 +52,7 @@
         padding-right: 5px;
         position: relative; }
         .menu ul.menu-list li.menu-item a.menu-link .arrow-left {
+          display: none;
           width: 0;
           height: 0;
           position: absolute;
@@ -72,6 +79,13 @@
           border-right: 5px solid #2aa9e0;
           padding-right: 0; }
           .menu ul.menu-list li.menu-item a.menu-link.active .arrow-left {
+            display: block;
+            width: 0;
+            height: 0;
+            position: absolute;
+            right: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
             border-right: 10px solid #2aa9e0; }
         .menu ul.menu-list li.menu-item a.menu-link:hover {
           background: rgba(255, 255, 255, 0.1);

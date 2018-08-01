@@ -34,6 +34,7 @@ const Menu = () => (
               window.location.pathname === "/profile" ? "menu-link active" : "menu-link"
             }
           >
+            <span className="arrow-left"></span>
             <span className="link-content">
               <i className="fas fa-user"></i>
               <span className="menu-link-text">Profile</span>
@@ -47,6 +48,7 @@ const Menu = () => (
               window.location.pathname === "/search" ? "menu-link active" : "menu-link"
             }
           >
+            <span className="arrow-left"></span>
             <span className="link-content">
               <i className="fas fa-search"></i>
               <span className="menu-link-text">Search</span>

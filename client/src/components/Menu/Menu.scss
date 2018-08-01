@@ -36,6 +36,12 @@
         line-height: 40px;
         color: rgba(255, 255, 255, 0.6);
         font-size: 1rem;
+        background: rgba(255, 255, 255, 0.05);
+
+        &:hover {
+            background: $dull-green;
+            text-decoration: none;
+        }
     }
 
     ul.menu-list {
@@ -51,6 +57,12 @@
             text-align: center;
             display: flex;
 
+            &:last-of-type {
+                a.menu-link {
+                    border-bottom: 0;
+                }
+            }
+
             a.menu-link {
                 display: flex;
                 align-items: center;
@@ -62,6 +74,7 @@
                 position: relative;
 
                 .arrow-left {
+                    display: none;
                     width: 0;
                     height: 0;
                     position: absolute;
@@ -98,6 +111,13 @@
                     padding-right: 0;
 
                     .arrow-left {
+                        display: block;
+                        width: 0;
+                        height: 0;
+                        position: absolute;
+                        right: 0;
+                        border-top: 10px solid transparent;
+                        border-bottom: 10px solid transparent;
                         border-right:10px solid $primary; 
                     }
                 }

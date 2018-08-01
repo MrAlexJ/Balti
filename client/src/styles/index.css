@@ -302,12 +302,12 @@ h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
   font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
-  font-weight: 500;
+  font-weight: 300;
   line-height: 1.2;
   color: inherit; }
 
 h1, .h1 {
-  font-size: 2.5rem; }
+  font-size: 2.2rem; }
 
 h2, .h2 {
   font-size: 2rem; }
@@ -6312,6 +6312,31 @@ a.text-dark:hover, a.text-dark:focus {
   .table .thead-dark th {
     color: inherit;
     border-color: #dee2e6; } }
+
+body {
+  color: #fff; }
+
+.site-wrapper {
+  background: #1E2E30;
+  min-height: 100vh; }
+  .site-wrapper .dashboard-menu {
+    float: left;
+    width: 200px; }
+  .site-wrapper .main-content {
+    float: left;
+    width: calc( 100% - 200px); }
+    .site-wrapper .main-content .page-title {
+      border-left: 5px solid #378576;
+      margin-top: 20px; }
+      .site-wrapper .main-content .page-title h1 {
+        color: #fff;
+        padding-left: 10px; }
+    .site-wrapper .main-content .list-wrapper h4 {
+      color: rgba(104, 190, 67, 0.9);
+      text-transform: uppercase;
+      border-bottom: 3px solid rgba(55, 133, 118, 0.9);
+      padding-bottom: 10px;
+      margin-bottom: 0; }
 
 .form .btn {
   border-radius: 6px; }

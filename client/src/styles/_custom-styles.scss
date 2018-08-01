@@ -1,3 +1,44 @@
+// Dashboard
+
+body {
+    color: $white;
+}
+
+.site-wrapper {
+    background: #1E2E30;
+    min-height: 100vh;
+
+    .dashboard-menu {
+        float: left;
+        width: 200px;
+    }
+    
+    .main-content {
+        float: left;
+        width: calc( 100% - 200px );
+
+        .page-title {
+            border-left: 5px solid $dull-green;
+            margin-top: 20px;
+
+            h1 {
+                color: $white;
+                padding-left: 10px;
+            }
+        }
+
+        .list-wrapper {
+            h4 {
+                color: rgba($color: $bright-green, $alpha: 0.9);
+                text-transform: uppercase;
+                border-bottom: 3px solid rgba($color: $dull-green, $alpha: 0.9);
+                padding-bottom: 10px;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
 .form {
     .btn {
         border-radius: 6px;

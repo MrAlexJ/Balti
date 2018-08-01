@@ -2,9 +2,8 @@ import React, {Component} from "react";
 import List from "../../components/List";
 import Stats from "../../components/Stats";
 import Menu from "../../components/Menu";
-import DashHeader from "../../components/DashHeader"
+import DashHeader from "../../components/DashHeader";
 import { Col, Row, Container } from "../../components/Grid";
-import './Dashboard.css';
 import axios from "axios";
 
 class Dashboard extends Component {
@@ -56,6 +55,13 @@ class Dashboard extends Component {
                 <div className="main-content">
                     <Container fluid>
                         <DashHeader />
+                        <Row>
+                        <Col size="sm-12">
+                            <div className="page-title">
+                                <h1>Dashboard</h1>
+                            </div>
+                        </Col>
+                        </Row>
                         <Row>
                             <Col size="sm-12">
                                 <Stats 
