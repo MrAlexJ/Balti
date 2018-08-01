@@ -1,7 +1,7 @@
 import React from "react";
 import "./Header.css";
 import Button from "../Button";
-import logo from "./images/logo@2x.png";
+import logo from "../../images/logo@2x.png";
 
 const Header = () => (
   <header>

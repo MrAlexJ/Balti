@@ -1,7 +1,8 @@
-.slider-control-centerleft button {
-    display: none;
-}
-
-.slider-control-centerright button {
-    display: none;
-}
+.nuka-carousel {
+  color: #fff;
+  padding: 30px 0;
+  text-align: center; }
+  .nuka-carousel .slider-control-bottomcenter,
+  .nuka-carousel .slider-control-centerleft button,
+  .nuka-carousel .slider-control-centerright button {
+    display: none; }

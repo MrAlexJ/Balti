@@ -1,0 +1,99 @@
+.menu {
+  color: #FFF;
+  height: 100vh;
+  background: #121C1D; }
+  .menu a.dashboard-brand {
+    display: block;
+    width: 100%;
+    text-align: center;
+    height: 120px;
+    padding: 20px 0; }
+    .menu a.dashboard-brand .logo {
+      display: inline-block;
+      max-width: 80px;
+      vertical-align: bottom; }
+    .menu a.dashboard-brand .logo-text {
+      display: inline-block;
+      font-family: "Great Vibes", "Helvetica Neue", Arial, sans-serif;
+      color: #FFF;
+      font-size: 2.5rem;
+      line-height: 2.5rem;
+      vertical-align: bottom;
+      margin-left: 8px; }
+  .menu a.btn-settings {
+    height: 40px;
+    line-height: 40px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem; }
+  .menu ul.menu-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: calc( 100vh - 160px); }
+    .menu ul.menu-list li.menu-item {
+      display: block;
+      width: 100%;
+      height: 33.33%;
+      text-align: center;
+      display: flex; }
+      .menu ul.menu-list li.menu-item a.menu-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+        padding-right: 5px;
+        position: relative; }
+        .menu ul.menu-list li.menu-item a.menu-link .arrow-left {
+          width: 0;
+          height: 0;
+          position: absolute;
+          right: 0;
+          border-top: 10px solid transparent;
+          border-bottom: 10px solid transparent;
+          border-right: 10px solid #2aa9e0; }
+        .menu ul.menu-list li.menu-item a.menu-link .link-content i {
+          display: block;
+          width: 80px;
+          height: 80px;
+          line-height: 80px;
+          font-size: 40px;
+          background-color: rgba(255, 255, 255, 0.1);
+          border-radius: 100%;
+          color: rgba(255, 255, 255, 0.9); }
+        .menu ul.menu-list li.menu-item a.menu-link .link-content .menu-link-text {
+          display: block;
+          margin-top: 5px;
+          font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+          font-weight: 200;
+          font-size: 1.2rem; }
+        .menu ul.menu-list li.menu-item a.menu-link.active {
+          border-right: 5px solid #2aa9e0;
+          padding-right: 0; }
+          .menu ul.menu-list li.menu-item a.menu-link.active .arrow-left {
+            border-right: 10px solid #2aa9e0; }
+        .menu ul.menu-list li.menu-item a.menu-link:hover {
+          background: rgba(255, 255, 255, 0.1);
+          border-right: 5px solid #378576;
+          text-decoration: none;
+          padding-right: 0; }
+          .menu ul.menu-list li.menu-item a.menu-link:hover .arrow-left {
+            display: block;
+            width: 0;
+            height: 0;
+            position: absolute;
+            right: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 10px solid #2aa9e0;
+            border-right: 10px solid #378576; }
+          .menu ul.menu-list li.menu-item a.menu-link:hover .link-content i {
+            box-shadow: inset 0 0 30px rgba(42, 169, 224, 0.3);
+            background-color: transparent; }
+        .menu ul.menu-list li.menu-item a.menu-link:active {
+          box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.6);
+          padding-right: 0; }
+          .menu ul.menu-list li.menu-item a.menu-link:active i,
+          .menu ul.menu-list li.menu-item a.menu-link:active .menu-link-text {
+            text-shadow: 0 0 20px black; }

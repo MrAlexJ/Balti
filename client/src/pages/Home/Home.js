@@ -4,7 +4,6 @@ import Carousel from "../../components/Carousel";
 import Modal from "../../components/Modal";
 import SignUp from "../../components/SignUp";
 import Login from "../../components/Login";
-import './Home.css';
 
 class Home extends Component {
     render(){

@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
+import Search from "./pages/Search";
+import Settings from "./pages/Settings";
 import Upload from "./pages/Upload";
 
 const App = () => (
@@ -11,6 +13,8 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/profile" component={Profile} />
+      <Route exact path="/search" component={Search} />
+      <Route exact path="/settings" component={Settings} />
       <Route exact path="/upload/profile/:id" component={Upload} />
     </div>
   </Router>

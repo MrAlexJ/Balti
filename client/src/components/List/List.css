@@ -1,0 +1,12 @@
+ul.list-group .list-group-item {
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  border-left: 0;
+  border-right: 0;
+  font-size: 1.2rem;
+  font-weight: 200;
+  border: 0; }
+  ul.list-group .list-group-item:nth-child(even) {
+    background: rgba(255, 255, 255, 0.05); }
+  ul.list-group .list-group-item:hover {
+    background: rgba(255, 255, 255, 0.1); }

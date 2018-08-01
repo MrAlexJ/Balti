@@ -1,0 +1,23 @@
+@import "bootstrap/scss/_functions";
+// My Bootstrap Configuration
+@import "styles/custom-variables";
+
+ul.list-group {
+    .list-group-item {
+        background-color: transparent;
+        color: rgba($color: $white, $alpha: 0.9);
+        border-left: 0;
+        border-right: 0;
+        font-size: 1.2rem;
+        font-weight: 200;
+        border: 0;
+
+        &:nth-child(even) {
+            background: rgba($color: $white, $alpha: 0.05);
+        }
+
+        &:hover {
+            background: rgba($color: $white, $alpha: 0.1);
+        }
+    }
+}

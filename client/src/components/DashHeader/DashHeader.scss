@@ -1,0 +1,23 @@
+@import "bootstrap/scss/_functions";
+// My Bootstrap Configuration
+@import "styles/custom-variables";
+
+.dash-header {
+    color: $white;
+    padding: 30px 0;
+    border-bottom: 1px solid rgba($color: #FFF, $alpha: 0.2);
+
+    .user-info {
+        font-size: 1.25rem;
+
+        img.profile-photo {
+            max-height: 80px;
+            border-radius: 100%;
+        }
+
+        .user-name {
+            font-weight: 200;
+            margin-left: 10px;
+        }
+    }
+}

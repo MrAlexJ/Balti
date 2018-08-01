@@ -1,6 +1,9 @@
 import React, {Component} from "react";
 import List from "../../components/List";
-import Stats from "../../components/Stats"
+import Stats from "../../components/Stats";
+import Menu from "../../components/Menu";
+import DashHeader from "../../components/DashHeader"
+import { Col, Row, Container } from "../../components/Grid";
 import './Dashboard.css';
 import axios from "axios";
 
@@ -44,21 +47,46 @@ class Dashboard extends Component {
         });
     }
 
-
     render(){
         return (
-            <div>
-                <h1>Dashboard</h1>
-                <Stats 
-                data={this.state.userstats}
-                
-                />
-                <List 
-                
-                data={this.state.results}
-                list="random"
-                addToList={this.addToList}
-                />
+            <div className="site-wrapper">
+                <div className="dashboard-menu">
+                    <Menu />
+                </div>
+                <div className="main-content">
+                    <Container fluid>
+                        <DashHeader />
+                        <Row>
+                            <Col size="sm-12">
+                                <Stats 
+                                    data={this.state.userstats}
+                                />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col size="sm-6">
+                                <div className="list-wrapper">
+                                    <h4>What My Homies Do</h4>
+                                    <List 
+                                        data={this.state.results}
+                                        list="random"
+                                        addToList={this.addToList}
+                                    />
+                                </div>
+                            </Col>
+                            <Col size="sm-6">
+                                <div className="list-wrapper">
+                                    <h4>Wish List</h4>
+                                    <List 
+                                        data={this.state.results}
+                                        list="random"
+                                        addToList={this.addToList}
+                                    />
+                                </div>
+                            </Col>
+                        </Row>
+                    </Container>
+                </div>
             </div>
         );
     }

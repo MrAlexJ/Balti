@@ -6,7 +6,7 @@ const Stats = props => {
     console.log("USER STATS", props.data)
 
     return ( 
-        <Carousel style={{textAlign: "center", height: "100px"}} wrapAround={true} autoplay={true}>
+        <Carousel className="nuka-carousel" wrapAround={true} autoplay={true}>
         {props.data.map(stats => {
             console.log(stats.first_name)
             return(
