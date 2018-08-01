@@ -382,7 +382,8 @@ router.get("/upload/profile/:id", (req, res) => {
         },
         {
         where: {
-            id: req.params.id
+            id: req.params.id,
+            UserId: req.session.user
             }
         })
         .then((docs) => {

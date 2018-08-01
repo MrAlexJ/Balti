@@ -59,18 +59,14 @@ class ListItem extends Component {
                 {this.props.items}</h6>
                 <div className="input-group-prepend">
                     <div className="input-group-text">
-                        mission accomplished?
                         <input
                             type={this.props.type}
                             key={this.props.id}
                             id={this.props.id}
-                            // completed={this.props.completed}
                             onChange={this.props.onChange}
                             onClick={()=>this.handleStrike()}
                             checked={this.state.strike}
                             disabled={this.props.completed}
-                            // checked={true}
-                            // onClick={this.handleStrike}
                         />
                     </div>
                 </div>
