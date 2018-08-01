@@ -68,6 +68,7 @@ class ListItem extends Component {
                             onChange={this.props.onChange}
                             onClick={()=>this.handleStrike()}
                             checked={this.state.strike}
+                            disabled={this.props.completed}
                             // checked={true}
                             // onClick={this.handleStrike}
                         />
