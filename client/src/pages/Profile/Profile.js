@@ -43,7 +43,8 @@ handleFormSubmit = (event) => {
     console.log(this.state);
     axios.post("/api/profile", this.state).then((response) => {
         this.setState({
-          bucket_items: ""
+          bucket_items: "",
+          list_type: ""
         });
   });
 }
@@ -101,9 +102,9 @@ addToRealList = (item) => {
   //         updateList: response.data
   //     });
   // });
-  axios.put(`/api/movelist/${item.target.id}`, {list_type: "bucket"}).then((response) => {    
+  axios.put(`/api/movelist/${item.id}`, {list_type: "bucket"}).then((response) => {    
     this.setState({
-      list_type: response.data
+      list_type: this.state.list_type,
   });
     console.log("now you gotta do it")
 });
