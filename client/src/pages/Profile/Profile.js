@@ -13,7 +13,7 @@ class Profile extends Component {
     bucket_items:"",
     public:false,
     wish:[],
-    list_type: "bucket"
+    list_type: ""
     // completed:true,
   };
 
@@ -33,13 +33,25 @@ class Profile extends Component {
   }
 
 handleInputChange = (event) => {
-  // console.log(event.target)
+  
+  console.log(event.target.value)
     // update any state property with the input value of the same name
     this.setState({
       bucket_items: event.target.value,
-
     });
+    console.log("hello input", this.state)
   };
+
+  handleDropChange = (event) => {
+  
+    console.log(event.target.value)
+      // update any state property with the input value of the same name
+      this.setState({
+        list_type: event.target.value
+      });
+      console.log("hello dropdown", this.state)
+    };
+
 
 handleFormSubmit = (event) => {
     // event.preventDefault();
@@ -60,6 +72,7 @@ toggleCheckComplete = (event) => {
     this.setState({
       // id : event.target.id,
       // completed: !this.state.completed,
+      // list_type:
     });
 });
   console.log(this.state);
@@ -113,6 +126,10 @@ addToRealList = (item) => {
 });
 }
 
+makeWish = (event) => {
+  console.log("hello there", event)
+}
+
 
   render() {
     return (
@@ -149,8 +166,12 @@ addToRealList = (item) => {
                   bucket_items={this.state.bucket_items}
                   public={this.state.public}
                   handleInputChange={this.handleInputChange}
+                  handleDropChange={this.handleDropChange}
                   handleFormSubmit={this.handleFormSubmit}
                   toggleIsChecked={this.toggleIsChecked}
+                  makeWish={this.makeWish}
+                  makeBucket={this.makeBucket}
+                  listType={this.state.list_type}
                 />
               </Col>
             </Row>
