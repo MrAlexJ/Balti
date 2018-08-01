@@ -1,0 +1,12 @@
+.dash-header {
+  color: #fff;
+  padding: 30px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
+  .dash-header .user-info {
+    font-size: 1.25rem; }
+    .dash-header .user-info img.profile-photo {
+      max-height: 80px;
+      border-radius: 100%; }
+    .dash-header .user-info .user-name {
+      font-weight: 200;
+      margin-left: 10px; }

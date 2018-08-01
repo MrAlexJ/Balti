@@ -1,0 +1,15 @@
+@import "bootstrap/scss/_functions";
+// My Bootstrap Configuration
+@import "styles/custom-variables";
+
+.nuka-carousel {
+    color: $white;
+    padding: 30px 0;
+    text-align: center;
+    
+    .slider-control-bottomcenter,
+    .slider-control-centerleft button,
+    .slider-control-centerright button {
+        display: none;
+    }
+}

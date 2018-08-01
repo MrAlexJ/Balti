@@ -1,0 +1,145 @@
+@import "bootstrap/scss/_functions";
+// My Bootstrap Configuration
+@import "styles/custom-variables";
+
+.menu {
+    color: #FFF;
+    height: 100vh;
+    background: #121C1D;
+
+    a.dashboard-brand {
+        display: block;
+        width: 100%;
+        text-align: center;
+        height: 120px;
+        padding: 20px 0;
+    
+        .logo {
+            display: inline-block;
+            max-width: 80px;
+            vertical-align: bottom;
+        }
+
+        .logo-text {
+            display: inline-block;
+            font-family: $great-vibes;
+            color: #FFF;
+            font-size: 2.5rem;
+            line-height: 2.5rem;
+            vertical-align: bottom;
+            margin-left: 8px;
+        }
+    }
+
+    a.btn-settings {
+        height: 40px;
+        line-height: 40px;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 1rem;
+    }
+
+    ul.menu-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        height: calc( 100vh - 160px);
+
+        li.menu-item {
+            display: block;
+            width: 100%;
+            height: 33.33%;
+            text-align: center;
+            display: flex;
+
+            a.menu-link {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                cursor: pointer;
+                padding-right: 5px;
+                position: relative;
+
+                .arrow-left {
+                    width: 0;
+                    height: 0;
+                    position: absolute;
+                    right: 0;
+                    border-top: 10px solid transparent;
+                    border-bottom: 10px solid transparent;
+                    border-right:10px solid $primary; 
+                }
+
+                .link-content {
+
+                    i {
+                        display: block;
+                        width: 80px;
+                        height: 80px;
+                        line-height: 80px;
+                        font-size: 40px;
+                        background-color:   rgba(255, 255, 255, 0.1);
+                        border-radius: 100%;
+                        color: rgba(255, 255, 255, 0.9);
+                    }
+    
+                    .menu-link-text {
+                        display: block;
+                        margin-top: 5px;
+                        font-family: $montserrat;
+                        font-weight: 200;
+                        font-size: 1.2rem;
+                    }
+                }
+
+                &.active {
+                    border-right: 5px solid $primary;
+                    padding-right: 0;
+
+                    .arrow-left {
+                        border-right:10px solid $primary; 
+                    }
+                }
+
+                &:hover {
+                    background: rgba(255, 255, 255, 0.1);
+                    border-right: 5px solid $dull-green;
+                    text-decoration: none;
+                    padding-right: 0;
+
+                    .arrow-left {
+                        display: block;
+                        width: 0;
+                        height: 0;
+                        position: absolute;
+                        right: 0;
+                        border-top: 10px solid transparent;
+                        border-bottom: 10px solid transparent;
+                        border-right:10px solid $primary; 
+                        border-right: 10px solid $dull-green; 
+                    }
+
+                    .link-content {
+
+                        i {
+                            box-shadow: inset 0 0 30px rgba(42, 169, 224, 0.3);
+                            background-color: transparent; 
+                        }
+                    }
+                }
+
+                &:active {
+                    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.6);
+                    padding-right: 0;
+
+                    i,
+                    .menu-link-text  {
+                        text-shadow: 0 0 20px rgba(0, 0, 0, 1);
+                    }
+                }
+            }
+        }
+    }
+
+}
