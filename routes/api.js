@@ -145,8 +145,8 @@ router.get("/api/userstats", (req, res) => {
         }
         }).then(results => {
             console.log("PLEASE: ", (results));
-            console.log(results[0].first_name);
-            console.log(results[0].total_completed);
+            // console.log(results[0].first_name);
+            // console.log(results[0].total_completed);
             // console.log(results[1].first_name);
             // console.log(results[1].total_completed);
             res.json(results);
