@@ -22,6 +22,18 @@ const List = props => {
           ))}
         </ul>
       );
+
+      case "dashwish":
+      return (
+        <ul className="list-group">
+          {props.data.map(item => (
+            <li className="list-group-item" key={item.id} id={item.id} onClick={() => props.addToRealList(item)}>
+              {item.bucket_items}
+            </li>
+          ))}
+        </ul>
+      );
+
     case "wish":
     return (
       <ul className="list-group">

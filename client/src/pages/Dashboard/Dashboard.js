@@ -11,11 +11,13 @@ class Dashboard extends Component {
     state = {
         results: [],
         updateList: [],
-        userstats: []
+        userstats: [],
+        dashWishList: []
     };
 
     componentDidMount() {
         this.userStats();
+        this.addToWish();
         console.log("component mount");
         axios.get("/api/dashboard").then((response) => {
             console.log("HEYYYY", response.data);
@@ -43,6 +45,21 @@ class Dashboard extends Component {
             this.setState({
                 updateList: response.data
             });
+            this.addToWish();
+        });
+    }
+
+    addToWish = (wish) => {
+        console.log(wish)
+        console.log("WOOHOOO..");
+
+        axios.get('/api/wishlist', wish).then((response )=> {
+            console.log("HOMIE WISH...", response.data);
+
+            this.setState({
+                dashWishList: response.data
+            });
+
         });
     }
 
@@ -84,9 +101,9 @@ class Dashboard extends Component {
                                 <div className="list-wrapper">
                                     <h4>Wish List</h4>
                                     <List 
-                                        data={this.state.results}
-                                        list="random"
-                                        addToList={this.addToList}
+                                        data={this.state.dashWishList}
+                                        list="dashwish"
+                                        addToWish={this.addToWish}
                                     />
                                 </div>
                             </Col>

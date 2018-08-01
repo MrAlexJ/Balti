@@ -145,8 +145,8 @@ router.get("/api/userstats", (req, res) => {
         }
         }).then(results => {
             console.log("PLEASE: ", (results));
-            console.log(results[0].first_name);
-            console.log(results[0].total_completed);
+            // console.log(results[0].first_name);
+            // console.log(results[0].total_completed);
             // console.log(results[1].first_name);
             // console.log(results[1].total_completed);
             res.json(results);
@@ -158,12 +158,12 @@ router.get("/api/dashboard", (req, res) => {
     db.Bucket.findAll({
             where: {
                 public: true,
-                list_type: "bucket"
+                // list_type: "bucket"
             }
     }).then(function(results) {
         console.log("YOOOOOO")
-        console.log(results[0].bucket_items);
-        console.log(results[0].list_type);
+        // console.log(results[0].bucket_items);
+        // console.log(results[0].list_type);
         res.json(results)
     });
 });
@@ -172,7 +172,8 @@ router.get("/api/dashboard", (req, res) => {
 router.get("/api/wishlist", (req, res) => {
     db.Bucket.findAll({
         where: {
-            list_type: "wish"
+            list_type: "wish",
+            UserId: req.session.user
         }
     }).then(function(wish) {
         res.json(wish)
