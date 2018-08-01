@@ -14,6 +14,7 @@ const Form = props => (
           type="checkbox" 
           aria-label="Checkbox for following text input" 
           id="public"
+          aria-describedby="button-addon4"
           // value={props.public}
           // defaultChecked={false}
           onChange={props.toggleIsChecked} 
@@ -22,8 +23,8 @@ const Form = props => (
         </div>
           <button className="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">List Type</button>
           <div className="dropdown-menu">
-            <a className="dropdown-item" onClick={props.type}>WISH</a>
-            <a className="dropdown-item" href="#">BUCKET</a>
+            <a className="dropdown-item" onClick={props.listType()}>WISH</a>
+            <a className="dropdown-item" >BUCKET</a>
             {/* <a class="dropdown-item" href="#">Something else here</a>
             <div role="separator" class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Separated link</a> */}

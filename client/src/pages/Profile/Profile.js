@@ -9,7 +9,7 @@ class Profile extends Component {
     results:[],
     bucket_items:"",
     public:false,
-    list_type: []
+    list_type: ""
     // completed:true,
   };
 
@@ -74,14 +74,14 @@ disableCheck = (event) => {
 }
 
 //select list type function
-listType = (type) => {
-    console.log(type)
+listType = (event) => {
+    console.log(event)
 
-    axios.post("/api/wishlist", type).then((response) => {
+    axios.post("/api/wishitems", event).then((response) => {
       console.log("WISSHHHH", response.data);
 
       this.setState({
-        list_type: response.data
+        list_type: ""
       });
     });
 }
@@ -110,6 +110,7 @@ listType = (type) => {
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
                 toggleIsChecked={this.toggleIsChecked}
+                listType={this.listType}
               />
             </div>
         </div>
