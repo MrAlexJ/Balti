@@ -18,12 +18,20 @@ class Profile extends Component {
   };
 
   componentDidMount() {
+    this.displayBucket();
+    this.displayWish();
+  }
+
+  displayBucket = (event) => {
     axios.get("/api/items").then((response)=> {
       console.log("bla",response.data);
       this.setState({
         results:response.data
       });
     });
+  }
+
+  displayWish = (event) => {
     axios.get("/api/wishlist").then((response) => {
       console.log("woooo", response.data);
       this.setState({
@@ -123,6 +131,8 @@ addToRealList = (item) => {
       list_type: this.state.list_type,
   });
     console.log("now you gotta do it")
+    this.displayWish();
+    this.displayBucket();
 });
 }
 
