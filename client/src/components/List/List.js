@@ -1,5 +1,6 @@
 import React from "react";
-import ListItem from "./ListItem.js"
+import ListItem from "./ListItem.js";
+import "./List.css";
 
 const List = props => {
 
@@ -15,7 +16,6 @@ const List = props => {
               {item.bucket_items}
               
               <i className="fas fa-plus-circle" onClick={()=>props.addToList(item)}></i>
-              <br />
               <i className="fas fa-star" ></i>
              
             </li>
@@ -30,7 +30,6 @@ const List = props => {
             {item.bucket_items}
             
             <i className="fas fa-plus-circle" onClick={()=>props.addToRealList(item)}></i>
-            <br />
           </li>
         ))}
       </ul>
