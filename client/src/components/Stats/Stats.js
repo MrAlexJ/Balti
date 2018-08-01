@@ -10,7 +10,7 @@ const Stats = props => {
         {props.data.map(stats => {
             console.log(stats.first_name)
             return(
-             <div>   
+             <div key={stats.id}>   
             <h4>{stats.first_name} | accomplished: {stats.total_completed}</h4>
             </div> 
             )   
