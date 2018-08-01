@@ -126,7 +126,20 @@ router.get("/logout", function(req, res) {
     };
 });
 
+router.get("/api/getid/", function (req,res){
+    res.send(req.session);
+});
 
+router.get("/api/users/:id", function (req, res) {
+    db.User.findOne({
+            where: {
+                id: req.params.id
+            },
+        attributes: ["first_name", "last_name", "profile_img", "total_completed", "email"]
+    }).then(function (dbUser) {
+        res.json(dbUser);
+    });
+});
 
 router.get("/", (req, res) => {
     db.User.findAll({}).then(results => {
