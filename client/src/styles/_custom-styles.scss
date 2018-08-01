@@ -1,21 +1,25 @@
 // Dashboard
 
-body {
-    color: $white;
-}
-
 .site-wrapper {
     background: #1E2E30;
     min-height: 100vh;
+    padding-bottom: 60px;
+
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
 
     .dashboard-menu {
-        float: left;
+        position: fixed;
         width: 200px;
     }
     
     .main-content {
         float: left;
         width: calc( 100% - 200px );
+        margin-left: 200px;
 
         .page-title {
             border-left: 5px solid $dull-green;

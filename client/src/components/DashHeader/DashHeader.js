@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from 'axios';
 import { Col, Row } from "../../components/Grid";
 import Button from "../../components/Button";
-import panda from "../../images/default.jpg";
 import "./DashHeader.css";
 
 class DashHeader extends Component {

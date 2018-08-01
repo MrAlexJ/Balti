@@ -9,7 +9,7 @@ import Upload from "./pages/Upload";
 
 const App = () => (
   <Router>
-    <div className="site-wrapper">
+    <div className="route-wrapper">
       <Route exact path="/" component={Home} />
       <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/profile" component={Profile} />

@@ -65,7 +65,7 @@ class Dashboard extends Component {
 
     render(){
         return (
-            <div className="site-wrapper">
+            <div className="site-wrapper clear-fix">
                 <div className="dashboard-menu">
                     <Menu />
                 </div>
