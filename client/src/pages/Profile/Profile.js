@@ -9,7 +9,8 @@ class Profile extends Component {
     results:[],
     bucket_items:"",
     public:false,
-    list_type: []
+    wish:[],
+    list_type: "bucket"
     // completed:true,
   };
 
@@ -20,8 +21,13 @@ class Profile extends Component {
         results:response.data
       });
     });
+    axios.get("/api/wishlist").then((response) => {
+      console.log("woooo", response.data);
+      this.setState({
+          wish: response.data
+      });
+  });
   }
-
 
 handleInputChange = (event) => {
   // console.log(event.target)
@@ -86,6 +92,23 @@ listType = (type) => {
     });
 }
 
+addToRealList = (item) => {
+  console.log(item)
+  console.log("YAYYY");
+  // axios.post('/api/addlist',item).then((response) => {
+  //     console.log("YESSSS", response.data);
+  //     this.setState({
+  //         updateList: response.data
+  //     });
+  // });
+  axios.put(`/api/movelist/${item.target.id}`, {list_type: "bucket"}).then((response) => {    
+    this.setState({
+      list_type: response.data
+  });
+    console.log("now you gotta do it")
+});
+}
+
 
   render() {
     return (
@@ -111,6 +134,15 @@ listType = (type) => {
                 handleFormSubmit={this.handleFormSubmit}
                 toggleIsChecked={this.toggleIsChecked}
               />
+            </div>
+            <br/>
+            <div>
+              <h5>Wishlist</h5>
+              <List 
+                  data={this.state.wish}
+                  list="wish"
+                  addToRealList={this.addToRealList}
+                  />
             </div>
         </div>
       </div>

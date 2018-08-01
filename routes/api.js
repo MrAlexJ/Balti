@@ -174,8 +174,8 @@ router.get("/api/wishlist", (req, res) => {
         where: {
             list_type: "wish"
         }
-    }).then(function(results) {
-        res.json(results)
+    }).then(function(wish) {
+        res.json(wish)
     });
 });
 
@@ -371,6 +371,27 @@ router.get("/upload/profile/:id", (req, res) => {
     });
 
     //Search location and things to do routes
+
+    router.put("/api/movelist/:id", function(req, res) {
+        var condition = "id = " + req.params.id;
+        console.log("condition", condition);
+        console.log(req.body)
+        db.Bucket.update({
+        //   completed: req.body.completed
+        list_type: req.body.list_type
+        },
+        {
+        where: {
+            id: req.params.id
+            }
+        })
+        .then((docs) => {
+          res.json(docs);
+        })
+        .catch((err) => {
+          res.json(err);
+        });
+      });
 
     
 
