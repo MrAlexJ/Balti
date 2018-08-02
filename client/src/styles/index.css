@@ -6330,10 +6330,12 @@ a.text-dark:hover, a.text-dark:focus {
     margin-left: 200px; }
     .site-wrapper .main-content .page-title {
       border-left: 5px solid #378576;
-      margin-top: 20px; }
+      margin-top: 20px;
+      margin-bottom: 40px; }
       .site-wrapper .main-content .page-title h1 {
         color: #fff;
-        padding-left: 10px; }
+        padding-left: 10px;
+        margin-bottom: 0; }
     .site-wrapper .main-content .list-wrapper h4 {
       color: rgba(104, 190, 67, 0.9);
       text-transform: uppercase;
@@ -6342,25 +6344,21 @@ a.text-dark:hover, a.text-dark:focus {
       margin-bottom: 0; }
 
 .form .btn {
-  border-radius: 6px; }
-
-.form .btn-primary {
-  background-color: #2aa9e0;
-  width: calc( 50% - 10px);
-  margin-left: 10px;
-  margin-right: 0;
-  border: 0; }
-
-.form .btn-primary:hover {
-  background: #1d81ac; }
-
-.form .btn-secondary {
   font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
   font-weight: 200;
   text-transform: uppercase;
   padding: 10px 2px;
   margin-right: 10px;
   width: calc( 50% - 10px);
+  border: 0;
+  border-radius: 6px; }
+
+.form .btn-primary {
+  margin-left: 10px;
+  margin-right: 0; }
+
+.form .btn-secondary {
+  margin-right: 10px;
   border: 0; }
 
 .form input {

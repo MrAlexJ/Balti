@@ -51,10 +51,38 @@ header {
 
         .buttons {
             padding-top: 30px;
-        }
 
-        button {
-            font-size: 1.25rem;
+            .btn-primary {
+                font-family: $montserrat;
+                font-size: 1.25rem;
+                font-weight: 200;
+                background: transparent;
+                border-radius: 0;
+                border-color: rgba($color: #FFF, $alpha: 0.3);
+                border-left: 0;
+                border-right: 0;
+                text-transform: uppercase;
+                margin: 0 15px;
+                padding: 10px 2px;
+            
+                &:hover {
+                    background: transparent;
+                    border-color: rgba($color: #FFF, $alpha: 1);
+                }
+            
+                &:focus {
+                    background: transparent;
+                    border-color: rgba($color: #FFF, $alpha: 1);
+                    box-shadow: 0 0 0 0.2rem rgba(0, 0, 255, 0);
+                }
+            
+                &:not(:disabled):not(.disabled):active,
+                &:not(:disabled):not(.disabled):active:focus {
+                    background: transparent;
+                    border-color: rgba($color: #FFF, $alpha: 1);
+                    box-shadow: 0 0 0 0.2rem rgba(0, 0, 255, 0);
+                }
+            }
         }
     }
 }

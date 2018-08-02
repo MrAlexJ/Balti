@@ -99,7 +99,7 @@ class Dashboard extends Component {
                             </Col>
                             <Col size="sm-6">
                                 <div className="list-wrapper">
-                                    <h4>Wish List</h4>
+                                    <h4>My Wish List</h4>
                                     <List 
                                         data={this.state.dashWishList}
                                         list="dashwish"

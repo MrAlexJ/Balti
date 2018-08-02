@@ -19,5 +19,29 @@ ul.list-group {
         &:hover {
             background: rgba($color: $white, $alpha: 0.1);
         }
+
+        .icons{
+            float: right;
+
+            i {
+                margin-left: 10px;
+
+                &:hover {
+                    cursor: pointer;
+
+                    &.fa-plus-circle {
+                        color: $bright-blue;
+                    }
+
+                    &.fa-star {
+                        color: $custom-yellow;
+                    }
+                }
+            }
+        }
+
+        .check-box {
+            float: right;
+        }
     }
 }

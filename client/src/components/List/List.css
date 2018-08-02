@@ -10,3 +10,15 @@ ul.list-group .list-group-item {
     background: rgba(255, 255, 255, 0.05); }
   ul.list-group .list-group-item:hover {
     background: rgba(255, 255, 255, 0.1); }
+  ul.list-group .list-group-item .icons {
+    float: right; }
+    ul.list-group .list-group-item .icons i {
+      margin-left: 10px; }
+      ul.list-group .list-group-item .icons i:hover {
+        cursor: pointer; }
+        ul.list-group .list-group-item .icons i:hover.fa-plus-circle {
+          color: #2aa9e0; }
+        ul.list-group .list-group-item .icons i:hover.fa-star {
+          color: #FFCC02; }
+  ul.list-group .list-group-item .check-box {
+    float: right; }

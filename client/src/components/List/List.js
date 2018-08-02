@@ -15,9 +15,10 @@ const List = props => {
             <li className="list-group-item" key={item.id}>
               {item.bucket_items}
               
-              <i className="fas fa-plus-circle" onClick={()=>props.addToList(item)}></i>
-              <i className="fas fa-star" ></i>
-             
+              <span className="icons">
+                <i className="fas fa-plus-circle" onClick={()=>props.addToList(item)}></i>
+                <i className="fas fa-star" ></i>
+              </span>
             </li>
           ))}
         </ul>
@@ -41,7 +42,9 @@ const List = props => {
           <li className="list-group-item" key={item.id} id={item.id}>
             {item.bucket_items}
             
-            <i className="fas fa-plus-circle" onClick={()=>props.addToRealList(item)}></i>
+            <span className="icons">
+              <i className="fas fa-plus-circle" onClick={()=>props.addToRealList(item)}></i>
+            </span>
           </li>
         ))}
       </ul>
