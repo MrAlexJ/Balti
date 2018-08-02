@@ -1,5 +1,21 @@
 form.add-item {
   margin-bottom: 40px; }
+  form.add-item h6 {
+    margin-bottom: 15px; }
+  form.add-item select {
+    background: #378576;
+    color: rgba(255, 255, 255, 0.9);
+    border: 0; }
+  form.add-item input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 0;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 200; }
+    form.add-item input:focus {
+      background: rgba(255, 255, 255, 0.1);
+      border: 0;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 200; }
   form.add-item .allow-public {
     background: rgba(255, 255, 255, 0.2);
     height: 100%;

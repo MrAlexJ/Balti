@@ -5,6 +5,30 @@
 form.add-item {
     margin-bottom: 40px;
 
+    h6 {
+        margin-bottom: 15px;
+    }
+
+    select {
+        background: rgba($color: $dull-green, $alpha: 1);
+        color: rgba($color: $white, $alpha: 0.9);
+        border: 0;
+    }
+
+    input {
+        background: rgba($color: $white, $alpha: 0.1);
+        border: 0;
+        color: rgba($color: $white, $alpha: 0.9);
+        font-weight: 200;
+
+        &:focus {
+            background: rgba($color: $white, $alpha: 0.1);
+            border: 0;
+            color: rgba($color: $white, $alpha: 0.9);
+            font-weight: 200;
+        }
+    }
+
     .allow-public {
         background: rgba($color: $white, $alpha: 0.2);
         height: 100%;

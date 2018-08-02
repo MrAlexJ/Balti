@@ -6337,9 +6337,9 @@ a.text-dark:hover, a.text-dark:focus {
         padding-left: 10px;
         margin-bottom: 0; }
     .site-wrapper .main-content section {
-      border-bottom: 3px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 3px solid rgba(255, 255, 255, 0.5);
       padding-bottom: 30px;
-      margin-bottom: 30px; }
+      margin-bottom: 60px; }
       .site-wrapper .main-content section:last-of-type {
         border: 0; }
     .site-wrapper .main-content .list-wrapper .more-info {
@@ -6407,4 +6407,12 @@ a.text-dark:hover, a.text-dark:focus {
       color: rgba(110, 120, 131, 0.5); }
   .form input::placeholder {
     font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 200; }
+
+.settings-form {
+  margin-top: 10px; }
+  .settings-form input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 0;
+    color: rgba(255, 255, 255, 0.9);
     font-weight: 200; }

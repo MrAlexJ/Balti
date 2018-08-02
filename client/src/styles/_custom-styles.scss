@@ -34,9 +34,9 @@
         }
 
         section {
-            border-bottom: 3px solid rgba($color: $white, $alpha: 0.1);
+            border-bottom: 3px solid rgba($color: $white, $alpha: 0.5);
             padding-bottom: 30px;
-            margin-bottom: 30px;
+            margin-bottom: 60px;
 
             &:last-of-type {
                 border: 0;
@@ -131,5 +131,16 @@
             font-family: $montserrat;
             font-weight: 200;
         }
+    }
+}
+
+.settings-form {
+    margin-top: 10px;
+
+    input {
+        background: rgba($color: $white, $alpha: 0.1);
+        border: 0;
+        color: rgba($color: $white, $alpha: 0.9);
+        font-weight: 200;
     }
 }

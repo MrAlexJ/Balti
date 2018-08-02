@@ -95,7 +95,7 @@ class Settings extends Component {
                                 <Col size="sm-12">
                                     <h5>Change your name below!</h5>
 
-                                    <form>
+                                    <form className="settings-form">
                                         <Row>
                                             <Col size="sm-5">
                                                 <input 
@@ -137,7 +137,7 @@ class Settings extends Component {
 
                                     <h5>Change your email below!</h5>
 
-                                    <form>
+                                    <form className="settings-form">
                                         <Row>
                                             <Col size="sm-10">
                                                 <input 
