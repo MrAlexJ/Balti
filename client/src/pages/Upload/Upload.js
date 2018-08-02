@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import Menu from "../../components/Menu";
+import DashHeader from "../../components/DashHeader";
+import { Col, Row, Container } from "../../components/Grid";
 import axios from "axios";
 
 class Upload extends Component {
@@ -59,28 +62,48 @@ class Upload extends Component {
 
   render() {
     return (
-      <div className="container">
-          <h1>Update User</h1>
-
-          <img src={`/assets/uploads/${this.state.user.profile_img}`} alt="default" />
-          
-          <form onSubmit={this.handleSubmit}>
-            <div className="form-group">
-
-              <label htmlFor="exampleFormControlFile1">Example file input</label>
-
-              <input
-                type="file"
-                name="selectedFile"
-                onChange={this.handleInputChange}
-                className="form-control-file"
-                id="exampleFormControlFile1" 
-                />
-
-              <button type="submit" className="btn btn-secondary">Submit</button>
+      <div className="site-wrapper clear-fix">
+          <div className="dashboard-menu">
+              <Menu />
           </div>
-        </form>
+          <div className="main-content">
+            <Container fluid>
+                <DashHeader />
+                <Row>
+                  <Col size="sm-12">
+                      <div className="page-title">
+                          <h1>Update Profile Photo</h1>
+                      </div>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col size="sm-6">
+                    <img src={`/assets/uploads/${this.state.user.profile_img}`} alt="default" className="img-fluid" />
+                  </Col>
+                  <Col size="sm-6">
+          
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="form-group">
 
+                          <label htmlFor="exampleFormControlFile1">Please select a file to upload</label>
+
+                          <input
+                            type="file"
+                            name="selectedFile"
+                            onChange={this.handleInputChange}
+                            className="form-control-file"
+                            id="exampleFormControlFile1" 
+                            />
+                        </div>
+                        
+                        <button type="submit" className="btn btn-secondary">Submit</button>
+
+                    </form>
+
+                  </Col>
+                </Row>
+            </Container>
+          </div>
       </div>
     );
   }

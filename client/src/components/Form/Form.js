@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row, Container } from "../../components/Grid";
+import { Col, Row } from "../../components/Grid";
 import "./Form.css";
 
 const Form = props => (
@@ -7,7 +7,7 @@ const Form = props => (
       <h6>Add your next bucket list item!</h6>
       <Row>
         <Col size="sm-2">
-          <select onChange={props.handleDropChange} class="form-control" value={props.listType}>
+          <select onChange={props.handleDropChange} className="form-control" value={props.listType}>
             <option value="select">List Type</option>
             <option value="wish" >Wish List</option>
             <option value="bucket" >Bucket List</option>
