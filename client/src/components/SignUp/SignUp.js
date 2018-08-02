@@ -36,8 +36,8 @@ class SignUp extends React.Component {
                 alert("An account already exists with that email address.",
                 window.location.href='/');
             } else {
-                alert("Account created. Welcome!",
-                window.location.href = '/Dashboard');
+                
+                window.location.href = '/Dashboard';
             }
         }).catch(error => {
             console.log("POST ERROR: ", error);
