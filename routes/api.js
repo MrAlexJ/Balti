@@ -189,10 +189,6 @@ router.get("/api/userstats", (req, res) => {
         }
         }).then(results => {
             console.log("PLEASE: ", (results));
-            // console.log(results[0].first_name);
-            // console.log(results[0].total_completed);
-            // console.log(results[1].first_name);
-            // console.log(results[1].total_completed);
             res.json(results);
         });
 });
@@ -206,8 +202,6 @@ router.get("/api/dashboard", (req, res) => {
             }
     }).then(function(results) {
         console.log("YOOOOOO")
-        // console.log(results[0].bucket_items);
-        // console.log(results[0].list_type);
         res.json(results)
     });
 });
@@ -286,8 +280,6 @@ router.get("/api/items/", (req, res) => {
         }
     }).then(function(results) {
         console.log("Yayy")
-        // console.log(results[0].bucket_items);
-        // console.log(results[0].list_type);
         res.json(results)
     });
 });
@@ -415,8 +407,6 @@ router.get("/upload/profile/:id", (req, res) => {
       });
 
     });
-
-    //Search location and things to do routes
 
     router.put("/api/movelist/:id", function(req, res) {
         var condition = "id = " + req.params.id;
