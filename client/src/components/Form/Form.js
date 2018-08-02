@@ -24,9 +24,6 @@ const Form = props => (
           <div className="dropdown-menu">
             <a className="dropdown-item" onClick={props.type}>WISH</a>
             <a className="dropdown-item" onClick={props.type}>BUCKET</a>
-            {/* <a class="dropdown-item" href="#">Something else here</a>
-            <div role="separator" class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a> */}
           </div>
       </div>
       <input
