@@ -16,8 +16,12 @@ const List = props => {
               {item.bucket_items}
               
               <span className="icons">
-                <i className="fas fa-plus-circle" onClick={()=>props.addToList(item)}></i>
-                <i className="fas fa-star" ></i>
+                <a className="btn-add" onClick={()=>props.addToList(item)}>
+                  <i className="fas fa-plus-circle"></i>
+                </a>
+                <a className="btn-star">
+                  <i className="fas fa-star" ></i>
+                </a>
               </span>
             </li>
           ))}
@@ -43,7 +47,9 @@ const List = props => {
             {item.bucket_items}
             
             <span className="icons">
-              <i className="fas fa-plus-circle" onClick={()=>props.addToRealList(item)}></i>
+                <a className="btn-add" onClick={()=>props.addToRealList(item)}>
+                  <i className="fas fa-plus-circle"></i>
+                </a>
             </span>
           </li>
         ))}

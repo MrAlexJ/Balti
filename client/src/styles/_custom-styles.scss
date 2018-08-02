@@ -34,6 +34,46 @@
         }
 
         .list-wrapper {
+
+            .more-info {
+                float: right;
+                position: relative;
+                margin-top: 5px;
+
+                .fa-info-circle {
+                    display: inline-block;
+                    font-size: 1.4rem;
+
+                    &:hover {
+                        cursor: pointer;
+                        color: $primary;
+                    }
+                }
+
+                .info-box {
+                    position: absolute;
+                    width: 340px;
+                    bottom: 40px;
+                    background: #535F60;
+                    box-shadow: 0 0 10px 0 rgba($color: $black, $alpha: 0.5);
+                    border-radius: 10px;
+                    padding: 20px;
+                    margin-left: -170px;
+                    border: 3px solid #CFD2D2;
+
+                    &::after {
+                        content: "";
+                        width: 0;
+                        height: 0;
+                        position: absolute;
+                        left: 167px;
+                        bottom: -13px;
+                        border-top: 10px solid #CFD2D2;
+                        border-left: 10px solid transparent;
+                        border-right:10px solid transparent; 
+                    }
+                }
+            }
             h4 {
                 color: rgba($color: $bright-green, $alpha: 0.9);
                 text-transform: uppercase;

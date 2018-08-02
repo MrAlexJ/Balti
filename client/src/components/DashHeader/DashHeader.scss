@@ -10,9 +10,43 @@
     .user-info {
         font-size: 1.25rem;
 
+        a.btn-edit-photo {
+            position: relative;
+            display: inline-block;
+            border-radius: 100%;
+            overflow: hidden;
+            vertical-align: middle;
+            transition: all .5s ease;
+            -webkit-transition: all .5s ease;
+            -moz-transition: all .5s ease;
+
+            .edit-photo-text {
+                position: absolute;
+                display: block;
+                bottom: -40px;
+                width: 100%;
+                text-align: center;
+                color: $white;
+                font-size: 0.9rem;
+                height: 40px;
+                line-height: 40px;
+                background: rgba($color: $black, $alpha: .7);
+                transition: all .5s ease;
+                -webkit-transition: all .5s ease;
+                -moz-transition: all .5s ease;
+            }
+
+            &:hover,
+            &:active,
+            &:focus {
+                .edit-photo-text {
+                    bottom: 0;
+                }
+            }
+        }
+
         img.profile-photo {
             max-height: 80px;
-            border-radius: 100%;
         }
 
         .user-name {

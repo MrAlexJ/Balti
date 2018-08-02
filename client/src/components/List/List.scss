@@ -23,17 +23,22 @@ ul.list-group {
         .icons{
             float: right;
 
-            i {
-                margin-left: 10px;
+            a {
+                display: inline-block;
+                padding: 0 5px;
+                cursor: pointer;
 
-                &:hover {
-                    cursor: pointer;
+                &.btn-add:hover {
 
-                    &.fa-plus-circle {
+                    .fa-plus-circle {
                         color: $bright-blue;
                     }
 
-                    &.fa-star {
+                }
+
+                &.btn-star:hover {
+
+                    .fa-star {
                         color: $custom-yellow;
                     }
                 }

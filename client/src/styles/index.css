@@ -6336,6 +6336,36 @@ a.text-dark:hover, a.text-dark:focus {
         color: #fff;
         padding-left: 10px;
         margin-bottom: 0; }
+    .site-wrapper .main-content .list-wrapper .more-info {
+      float: right;
+      position: relative;
+      margin-top: 5px; }
+      .site-wrapper .main-content .list-wrapper .more-info .fa-info-circle {
+        display: inline-block;
+        font-size: 1.4rem; }
+        .site-wrapper .main-content .list-wrapper .more-info .fa-info-circle:hover {
+          cursor: pointer;
+          color: #2aa9e0; }
+      .site-wrapper .main-content .list-wrapper .more-info .info-box {
+        position: absolute;
+        width: 340px;
+        bottom: 40px;
+        background: #535F60;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        padding: 20px;
+        margin-left: -170px;
+        border: 3px solid #CFD2D2; }
+        .site-wrapper .main-content .list-wrapper .more-info .info-box::after {
+          content: "";
+          width: 0;
+          height: 0;
+          position: absolute;
+          left: 167px;
+          bottom: -13px;
+          border-top: 10px solid #CFD2D2;
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent; }
     .site-wrapper .main-content .list-wrapper h4 {
       color: rgba(104, 190, 67, 0.9);
       text-transform: uppercase;

@@ -62,7 +62,7 @@ handleInputChange = (event) => {
 
 
 handleFormSubmit = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     console.log("Form is submitting");
     console.log(this.state);
     axios.post("/api/profile", this.state).then((response) => {
