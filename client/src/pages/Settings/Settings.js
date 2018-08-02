@@ -12,7 +12,8 @@ class Settings extends Component {
       lastName: "",
       email: "",
       profileImg: "",
-      totalCompleted: ""
+      totalCompleted: "",
+      selectedFile: ""
     }
 
     componentDidMount() {
@@ -73,6 +74,27 @@ class Settings extends Component {
         });
         console.log("email changed to ", this.state)
     }
+
+    handleImagechange = (event) => {
+        console.log(event.target.files[0]);
+        this.setState({
+          selectedFile: event.target.files[0]
+        });
+    }
+
+    handleSubmit = (event) => {
+      event.preventDefault();
+  
+      const { selectedFile } = this.state;
+      let formData = new FormData();
+  
+      formData.append('selectedFile', selectedFile);
+      
+      axios.put('/upload/profile/' + this.state.userId, formData)
+        .then((result) => {
+          this.getUserInfo(this.state.userId);
+        });
+    };
 
     render(){
         return (
@@ -160,6 +182,41 @@ class Settings extends Component {
                                         </Row>
                                     </form>
                                 </Col>
+                            </Row>
+                        </section>
+                        <section>
+                            <Row>
+                            <Col size="sm-12">
+                                <div className="page-title">
+                                    <h1>Update Profile Photo</h1>
+                                </div>
+                            </Col>
+                            </Row>
+                            <Row>
+                            <Col size="sm-4">
+                                <img src={`/assets/uploads/${this.state.profileImg}`} alt="default" className="img-fluid" />
+                            </Col>
+                            <Col size="sm-8">
+                    
+                                <form onSubmit={this.handleSubmit}>
+                                    <div className="form-group">
+
+                                    <label htmlFor="exampleFormControlFile1">Please select a file to upload</label>
+
+                                    <input
+                                        type="file"
+                                        name="selectedFile"
+                                        onChange={this.handleImagechange}
+                                        className="form-control-file"
+                                        id="exampleFormControlFile1" 
+                                        />
+                                    </div>
+                                    
+                                    <button type="submit" className="btn btn-secondary">Submit</button>
+
+                                </form>
+
+                            </Col>
                             </Row>
                         </section>
                     </Container>

@@ -48,9 +48,12 @@ class Upload extends Component {
     
 
     const { selectedFile } = this.state;
+    console.log(selectedFile)
     let formData = new FormData();
 
     formData.append('selectedFile', selectedFile);
+
+    console.log("selected file", selectedFile)
     
     axios.put('/upload/profile/' + this.state.user.id, formData)
       .then((result) => {
