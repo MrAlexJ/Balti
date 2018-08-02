@@ -1,5 +1,6 @@
 import React from "react";
 import ListItem from "./ListItem.js";
+import IconStar from "./IconStar.js";
 import "./List.css";
 
 const List = props => {
@@ -15,9 +16,12 @@ const List = props => {
             <li className="list-group-item" key={item.id}>
               {item.bucket_items}
               
-              <i className="fas fa-plus-circle" onClick={()=>props.addToList(item)}></i>
-              <i className="fas fa-star" ></i>
-             
+              <span className="icons">
+                <a className="btn-add" onClick={()=>props.addToList(item)}>
+                  <i className="fas fa-plus-circle"></i>
+                </a>
+                <IconStar />
+              </span>
             </li>
           ))}
         </ul>
@@ -41,7 +45,11 @@ const List = props => {
           <li className="list-group-item" key={item.id} id={item.id}>
             {item.bucket_items}
             
-            <i className="fas fa-plus-circle" onClick={()=>props.addToRealList(item)}></i>
+            <span className="icons">
+                <a className="btn-add" onClick={()=>props.addToRealList(item)}>
+                  <i className="fas fa-plus-circle"></i>
+                </a>
+            </span>
           </li>
         ))}
       </ul>

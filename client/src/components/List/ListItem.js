@@ -55,10 +55,9 @@ class ListItem extends Component {
 
     render() {
         return (
-            <li className="list-group-item" key={this.props.id}><h6 style={this.state.style}>
-                {this.props.items}</h6>
-                <div className="input-group-prepend">
-                    <div className="input-group-text">
+            <li className="list-group-item" key={this.props.id}><span style={this.state.style}>
+                {this.props.items}</span>
+                    <span className="check-box">
                         <input
                             type={this.props.type}
                             key={this.props.id}
@@ -68,8 +67,7 @@ class ListItem extends Component {
                             checked={this.state.strike}
                             disabled={this.props.completed}
                         />
-                    </div>
-                </div>
+                    </span>
             </li>
         )
     }

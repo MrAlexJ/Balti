@@ -37,5 +37,26 @@ header {
       font-size: 1.4rem; }
     header .main-header .buttons {
       padding-top: 30px; }
-    header .main-header button {
-      font-size: 1.25rem; }
+      header .main-header .buttons .btn-primary {
+        font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+        font-size: 1.25rem;
+        font-weight: 200;
+        background: transparent;
+        border-radius: 0;
+        border-color: rgba(255, 255, 255, 0.3);
+        border-left: 0;
+        border-right: 0;
+        text-transform: uppercase;
+        margin: 0 15px;
+        padding: 10px 2px; }
+        header .main-header .buttons .btn-primary:hover {
+          background: transparent;
+          border-color: white; }
+        header .main-header .buttons .btn-primary:focus {
+          background: transparent;
+          border-color: white;
+          box-shadow: 0 0 0 0.2rem rgba(0, 0, 255, 0); }
+        header .main-header .buttons .btn-primary:not(:disabled):not(.disabled):active, header .main-header .buttons .btn-primary:not(:disabled):not(.disabled):active:focus {
+          background: transparent;
+          border-color: white;
+          box-shadow: 0 0 0 0.2rem rgba(0, 0, 255, 0); }

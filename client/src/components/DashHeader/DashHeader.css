@@ -4,9 +4,33 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
   .dash-header .user-info {
     font-size: 1.25rem; }
+    .dash-header .user-info a.btn-edit-photo {
+      position: relative;
+      display: inline-block;
+      border-radius: 100%;
+      overflow: hidden;
+      vertical-align: middle;
+      transition: all .5s ease;
+      -webkit-transition: all .5s ease;
+      -moz-transition: all .5s ease; }
+      .dash-header .user-info a.btn-edit-photo .edit-photo-text {
+        position: absolute;
+        display: block;
+        bottom: -40px;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        font-size: 0.9rem;
+        height: 40px;
+        line-height: 40px;
+        background: rgba(0, 0, 0, 0.7);
+        transition: all .5s ease;
+        -webkit-transition: all .5s ease;
+        -moz-transition: all .5s ease; }
+      .dash-header .user-info a.btn-edit-photo:hover .edit-photo-text, .dash-header .user-info a.btn-edit-photo:active .edit-photo-text, .dash-header .user-info a.btn-edit-photo:focus .edit-photo-text {
+        bottom: 0; }
     .dash-header .user-info img.profile-photo {
-      max-height: 80px;
-      border-radius: 100%; }
+      max-height: 80px; }
     .dash-header .user-info .user-name {
       font-weight: 200;
       margin-left: 10px; }

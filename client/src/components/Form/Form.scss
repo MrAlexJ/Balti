@@ -1,0 +1,22 @@
+@import "bootstrap/scss/_functions";
+// My Bootstrap Configuration
+@import "styles/custom-variables";
+
+form.add-item {
+    margin-bottom: 40px;
+
+    .allow-public {
+        background: rgba($color: $white, $alpha: 0.2);
+        height: 100%;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        input {
+            margin-left: 5px;
+            vertical-align: text-top;
+            margin-top: 1px;
+        }
+    }
+}

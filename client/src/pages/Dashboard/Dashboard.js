@@ -12,7 +12,10 @@ class Dashboard extends Component {
         results: [],
         updateList: [],
         userstats: [],
-        dashWishList: []
+        dashWishList: [],
+        tooltipStyle: {
+            display: "none"
+        }
     };
 
     componentDidMount() {
@@ -63,6 +66,24 @@ class Dashboard extends Component {
         });
     }
 
+    tooltipEnter = () => {
+        console.log("mouse enter");
+        this.setState({
+            tooltipStyle: {
+                display: "block"
+            }
+        });
+    }
+
+    tooltipExit = () => {
+        console.log("mouse leave");
+        this.setState({
+            tooltipStyle: {
+                display: "none"
+            }
+        });
+    }
+
     render(){
         return (
             <div className="site-wrapper clear-fix">
@@ -89,7 +110,21 @@ class Dashboard extends Component {
                         <Row>
                             <Col size="sm-6">
                                 <div className="list-wrapper">
-                                    <h4>What My Homies Do</h4>
+                                    <span className="more-info">
+                                    <div className="info-box" style={this.state.tooltipStyle}>
+                                        <p>
+                                            <strong>Help</strong>
+                                        </p>
+                                        <p>
+                                            <i className="fas fa-plus-circle"></i> Click to add item to your wish list.
+                                        </p>
+                                        <p>
+                                            <i className="fas fa-star" ></i> Click just for fun!
+                                        </p>
+                                    </div>
+                                    <i className="fas fa-info-circle" onMouseEnter={this.tooltipEnter} onMouseLeave={this.tooltipExit}
+                                    ></i></span>
+                                    <h4>Friends' List</h4>
                                     <List 
                                         data={this.state.results}
                                         list="random"
@@ -99,7 +134,7 @@ class Dashboard extends Component {
                             </Col>
                             <Col size="sm-6">
                                 <div className="list-wrapper">
-                                    <h4>Wish List</h4>
+                                    <h4>My Wish List</h4>
                                     <List 
                                         data={this.state.dashWishList}
                                         list="dashwish"

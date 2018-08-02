@@ -61,7 +61,7 @@
           border-bottom: 10px solid transparent;
           border-right: 10px solid #2aa9e0; }
         .menu ul.menu-list li.menu-item a.menu-link .link-content i {
-          display: block;
+          display: inline-block;
           width: 80px;
           height: 80px;
           line-height: 80px;

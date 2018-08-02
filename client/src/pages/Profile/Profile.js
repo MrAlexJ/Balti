@@ -63,6 +63,7 @@ handleInputChange = (event) => {
 
 handleFormSubmit = (event) => {
     // event.preventDefault();
+    console.log("Form is submitting");
     console.log(this.state);
     axios.post("/api/profile", this.state).then((response) => {
         this.setState({
@@ -159,19 +160,6 @@ makeWish = (event) => {
             </Row>
             <Row>
               <Col size="sm-12">
-                <h5>Before I Kick the Bucket, I Gotta...</h5>
-                <List
-                  // item={this.state.item}
-                  data={this.state.results}
-                  toggleCheckComplete={this.toggleCheckComplete}
-                  completed={this.state.completed}
-                  disableCheck={this.disableCheck}
-                  handleInputChange={this.handleInputChange}
-                />
-              </Col>
-            </Row>
-            <Row>
-              <Col size="sm-12">
                 <Form
                   bucket_items={this.state.bucket_items}
                   public={this.state.public}
@@ -186,13 +174,28 @@ makeWish = (event) => {
               </Col>
             </Row>
             <Row>
-              <Col size="sm-12">
-                <h5>Wishlist</h5>
-                <List 
-                    data={this.state.wish}
-                    list="wish"
-                    addToRealList={this.addToRealList}
+              <Col size="sm-6">
+                <div className="list-wrapper">
+                    <h4>My Bucket List</h4>
+                    <List
+                      // item={this.state.item}
+                      data={this.state.results}
+                      toggleCheckComplete={this.toggleCheckComplete}
+                      completed={this.state.completed}
+                      disableCheck={this.disableCheck}
+                      handleInputChange={this.handleInputChange}
                     />
+                </div>
+              </Col>
+              <Col size="sm-6">
+                <div className="list-wrapper">
+                    <h4>My Wish List</h4>
+                    <List 
+                        data={this.state.wish}
+                        list="wish"
+                        addToRealList={this.addToRealList}
+                        />
+                </div>
               </Col>
             </Row>
           </Container>

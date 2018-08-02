@@ -19,5 +19,42 @@ ul.list-group {
         &:hover {
             background: rgba($color: $white, $alpha: 0.1);
         }
+
+        .icons{
+            float: right;
+
+            a {
+                display: inline-block;
+                padding: 0 5px;
+                cursor: pointer;
+
+                &.btn-add:hover {
+
+                    .fa-plus-circle {
+                        color: $bright-blue;
+                        transform: scale(1.1);
+                        transition: all .5s ease;
+                        -webkit-transition: all .5s ease;
+                        -moz-transition: all .5s ease;
+                    }
+
+                }
+
+                &.btn-star:hover {
+
+                    .fa-star {
+                        color: $custom-yellow;
+                        transform: scale(1.1);
+                        transition: all .5s ease;
+                        -webkit-transition: all .5s ease;
+                        -moz-transition: all .5s ease;
+                    }
+                }
+            }
+        }
+
+        .check-box {
+            float: right;
+        }
     }
 }

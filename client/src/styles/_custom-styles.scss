@@ -24,14 +24,56 @@
         .page-title {
             border-left: 5px solid $dull-green;
             margin-top: 20px;
+            margin-bottom: 40px;
 
             h1 {
                 color: $white;
                 padding-left: 10px;
+                margin-bottom: 0;
             }
         }
 
         .list-wrapper {
+
+            .more-info {
+                float: right;
+                position: relative;
+                margin-top: 5px;
+
+                .fa-info-circle {
+                    display: inline-block;
+                    font-size: 1.4rem;
+
+                    &:hover {
+                        cursor: pointer;
+                        color: $primary;
+                    }
+                }
+
+                .info-box {
+                    position: absolute;
+                    width: 340px;
+                    bottom: 40px;
+                    background: #535F60;
+                    box-shadow: 0 0 10px 0 rgba($color: $black, $alpha: 0.5);
+                    border-radius: 10px;
+                    padding: 20px;
+                    margin-left: -170px;
+                    border: 3px solid #CFD2D2;
+
+                    &::after {
+                        content: "";
+                        width: 0;
+                        height: 0;
+                        position: absolute;
+                        left: 167px;
+                        bottom: -13px;
+                        border-top: 10px solid #CFD2D2;
+                        border-left: 10px solid transparent;
+                        border-right:10px solid transparent; 
+                    }
+                }
+            }
             h4 {
                 color: rgba($color: $bright-green, $alpha: 0.9);
                 text-transform: uppercase;
@@ -45,25 +87,21 @@
 
 .form {
     .btn {
-        border-radius: 6px;
-    }
-    .btn-primary {
-        background-color: $primary;
-        width: calc( 50% - 10px);
-        margin-left: 10px;
-        margin-right: 0;
-        border: 0;
-    }
-    .btn-primary:hover {
-        background: #1d81ac;
-    }
-    .btn-secondary {
         font-family: $montserrat;
         font-weight: 200;
         text-transform: uppercase;
         padding: 10px 2px;
         margin-right: 10px;
         width: calc( 50% - 10px);
+        border: 0;
+        border-radius: 6px;
+    }
+    .btn-primary {
+        margin-left: 10px;
+        margin-right: 0;
+    }
+    .btn-secondary {
+        margin-right: 10px;
         border: 0;
     }
     input {

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from 'axios';
 import { Col, Row } from "../../components/Grid";
 import Button from "../../components/Button";
@@ -6,6 +7,7 @@ import "./DashHeader.css";
 
 class DashHeader extends Component {
   state = {
+    userId: "",
     firstName: "",
     lastName: "",
     email: "",
@@ -29,6 +31,7 @@ class DashHeader extends Component {
     console.log("Logged In User ID: " + userId);
     axios.get("/api/users/" + userId).then((response) => {
       this.setState({
+        userId: userId,
         firstName: response.data.first_name,
         lastName: response.data.last_name,
         email: response.data.email,
@@ -61,7 +64,13 @@ class DashHeader extends Component {
           <Col size="sm-6">
             <div className="user-info">
 
-              <img src={`/assets/uploads/${this.state.profileImg}`} className="img-fluid profile-photo" alt="default" />
+              <Link
+                to={`/profile/upload/${this.state.userId}`}
+                className="btn-edit-photo"
+              >
+                <span className="edit-photo-text">Edit</span>
+                  <img src={`/assets/uploads/${this.state.profileImg}`} className="img-fluid profile-photo" alt="default" />
+              </Link>
               <span className="user-name">{this.state.firstName} {this.state.lastName}</span>
             </div>
           </Col>
