@@ -33,6 +33,16 @@
             }
         }
 
+        section {
+            border-bottom: 3px solid rgba($color: $white, $alpha: 0.1);
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+
+            &:last-of-type {
+                border: 0;
+            }
+        }
+
         .list-wrapper {
 
             .more-info {

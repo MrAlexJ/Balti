@@ -6336,6 +6336,12 @@ a.text-dark:hover, a.text-dark:focus {
         color: #fff;
         padding-left: 10px;
         margin-bottom: 0; }
+    .site-wrapper .main-content section {
+      border-bottom: 3px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 30px;
+      margin-bottom: 30px; }
+      .site-wrapper .main-content section:last-of-type {
+        border: 0; }
     .site-wrapper .main-content .list-wrapper .more-info {
       float: right;
       position: relative;
