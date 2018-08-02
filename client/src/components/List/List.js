@@ -1,5 +1,6 @@
 import React from "react";
 import ListItem from "./ListItem.js";
+import IconStar from "./IconStar.js";
 import "./List.css";
 
 const List = props => {
@@ -19,9 +20,7 @@ const List = props => {
                 <a className="btn-add" onClick={()=>props.addToList(item)}>
                   <i className="fas fa-plus-circle"></i>
                 </a>
-                <a className="btn-star">
-                  <i className="fas fa-star" ></i>
-                </a>
+                <IconStar />
               </span>
             </li>
           ))}

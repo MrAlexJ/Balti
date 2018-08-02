@@ -17,8 +17,16 @@ ul.list-group .list-group-item {
       padding: 0 5px;
       cursor: pointer; }
       ul.list-group .list-group-item .icons a.btn-add:hover .fa-plus-circle {
-        color: #2aa9e0; }
+        color: #2aa9e0;
+        transform: scale(1.1);
+        transition: all .5s ease;
+        -webkit-transition: all .5s ease;
+        -moz-transition: all .5s ease; }
       ul.list-group .list-group-item .icons a.btn-star:hover .fa-star {
-        color: #FFCC02; }
+        color: #FFCC02;
+        transform: scale(1.1);
+        transition: all .5s ease;
+        -webkit-transition: all .5s ease;
+        -moz-transition: all .5s ease; }
   ul.list-group .list-group-item .check-box {
     float: right; }

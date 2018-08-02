@@ -122,7 +122,7 @@ class Dashboard extends Component {
                                             <i className="fas fa-star" ></i> Click just for fun!
                                         </p>
                                     </div>
-                                    <i class="fas fa-info-circle" onMouseEnter={this.tooltipEnter} onMouseLeave={this.tooltipExit}
+                                    <i className="fas fa-info-circle" onMouseEnter={this.tooltipEnter} onMouseLeave={this.tooltipExit}
                                     ></i></span>
                                     <h4>Friends' List</h4>
                                     <List 

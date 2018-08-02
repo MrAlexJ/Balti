@@ -32,6 +32,10 @@ ul.list-group {
 
                     .fa-plus-circle {
                         color: $bright-blue;
+                        transform: scale(1.1);
+                        transition: all .5s ease;
+                        -webkit-transition: all .5s ease;
+                        -moz-transition: all .5s ease;
                     }
 
                 }
@@ -40,6 +44,10 @@ ul.list-group {
 
                     .fa-star {
                         color: $custom-yellow;
+                        transform: scale(1.1);
+                        transition: all .5s ease;
+                        -webkit-transition: all .5s ease;
+                        -moz-transition: all .5s ease;
                     }
                 }
             }
