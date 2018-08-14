@@ -10,13 +10,13 @@ const Carousel = () => (
     <div className="carousel-inner">
 
       <div className="carousel-item active">
-          <video playsInline="" autoPlay="true" muted="" loop="true" className="carousel-video video-machu-picchu" id="video-machu-picchu" >
+          <video playsInline="" autoPlay="true" muted="true" loop="true" className="carousel-video video-machu-picchu" id="video-machu-picchu" >
               <source src={machuPicchu} type="video/mp4" />
           </video>
       </div>
 
       <div className="carousel-item">
-          <video playsInline="" autoPlay="true" muted="" loop="true" className="carousel-video video-tropical-shore" id="video-tropical-shore" >
+          <video playsInline="" autoPlay="true" muted="true" loop="true" className="carousel-video video-tropical-shore" id="video-tropical-shore" >
               <source src={tropicalShore} type="video/mp4" />
           </video>
       </div>
